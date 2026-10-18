@@ -37,6 +37,25 @@
 @media(max-width:390px){.gallery{gap:7px}.photo-card--main{aspect-ratio:.82}.gallery-thumbnail{flex-basis:52px;width:52px}}
 
     </style>
+    <style>
+      .product-buy{display:flex;align-items:center;gap:16px;width:100%;margin:18px 0 0}
+      .quantity-control{display:flex;align-items:center;justify-content:space-between;flex:0 0 115px;height:59px}
+      .quantity-button{display:grid;place-items:center;width:36px;height:26px;padding:0;border:0;background:transparent;font-size:17px;line-height:1;cursor:pointer}
+      .quantity-button:disabled{opacity:.35;cursor:not-allowed}
+      .quantity-control input{flex:1;width:43px;height:40px;padding:0;border:0;border-radius:4px;background:#fff;text-align:center;font-size:14px;-moz-appearance:textfield}
+      .quantity-control input::-webkit-inner-spin-button,.quantity-control input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+      .product-buy .add-to-cart{flex:1 1 283px;width:283px;min-width:0;height:59px;margin:0;border:1px solid #0f0f0f;border-radius:8px;background:#0f0f0f;color:#fff;font-size:16px;font-weight:500;letter-spacing:0;text-transform:none;cursor:pointer;transition:background .2s,color .2s}
+      .product-buy .add-to-cart:hover{background:#000;color:#fff}
+      .site-header{position:sticky;top:0}
+      @media(max-width:768px){
+        body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+        .product-buy{position:fixed;left:0;right:0;bottom:0;z-index:4;width:auto;margin:0;padding:10px 15px calc(10px + env(safe-area-inset-bottom));gap:16px;background:#fff;box-shadow:0 -4px 16px rgba(0,0,0,.08)}
+        .quantity-control{flex:0 0 115px;height:52px}
+        .quantity-control input{height:40px}
+        .product-buy .add-to-cart{flex:1 1 auto;width:auto;height:52px;font-size:16px}
+        .toast{bottom:calc(84px + env(safe-area-inset-bottom))}
+      }
+    </style>
   </head>
   <body>
     <div class="announcement" aria-label="Ofertas da loja">
@@ -94,7 +113,14 @@
             <p class="selection-hint" id="size-hint">Selecione um tamanho</p>
           </div>
 
-          <button class="add-to-cart" id="add-to-cart" type="button">ADICIONAR AO CARRINHO</button>
+          <div class="product-buy" id="product-buy">
+            <div class="quantity-control" aria-label="Quantidade">
+              <button class="quantity-button" id="quantity-minus" type="button" aria-label="Diminuir quantidade">−</button>
+              <input id="quantity-value" type="number" value="1" min="1" max="99" step="1" inputmode="numeric" aria-label="Quantidade" />
+              <button class="quantity-button" id="quantity-plus" type="button" aria-label="Aumentar quantidade">+</button>
+            </div>
+            <button class="add-to-cart" id="add-to-cart" type="button">Adicionar ao carrinho</button>
+          </div>
           <p class="cart-feedback" id="cart-feedback" aria-live="polite"></p>
           <p class="secure-note"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3.5" y="8" width="13" height="10" rx="1.5"></rect><path d="M6.5 8V5.5a3.5 3.5 0 0 1 7 0V8"></path></svg>Compra segura • Troca fácil</p>
 
@@ -217,6 +243,7 @@ const $$ = selector => [...document.querySelectorAll(selector)];
 let selectedSize = '';
 let selectedImage = 0;
 let cartItems = 0;
+let quantity = 1;
 let rating = 0;
 let toastTimer;
 
@@ -382,6 +409,16 @@ function showToast(message) {
   toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 2800);
 }
 
+function setQuantity(value) {
+  quantity = Math.max(1, Math.min(99, Math.floor(Number(value) || 1)));
+  $('#quantity-value').value = quantity;
+  $('#quantity-minus').disabled = quantity <= 1;
+}
+$('#quantity-minus').addEventListener('click', () => setQuantity(quantity - 1));
+$('#quantity-plus').addEventListener('click', () => setQuantity(quantity + 1));
+$('#quantity-value').addEventListener('change', event => setQuantity(event.target.value));
+setQuantity(quantity);
+
 $('#add-to-cart').addEventListener('click', () => {
   if (!selectedSize) {
     $('#size-hint').textContent = 'Escolha um tamanho para continuar.';
@@ -389,10 +426,10 @@ $('#add-to-cart').addEventListener('click', () => {
     $('#size-options').scrollIntoView({ behavior: 'smooth', block: 'center' });
     return;
   }
-  cartItems += 1;
+  cartItems += quantity;
   $('#cart-count').textContent = cartItems;
   $('#cart-button').setAttribute('aria-label', `Carrinho, ${cartItems} ${cartItems === 1 ? 'item' : 'itens'}`);
-  const message = `${PRODUCT.name} · tamanho ${selectedSize} adicionado ao carrinho.`;
+  const message = `${PRODUCT.name} · tamanho ${selectedSize} · quantidade ${quantity} adicionada ao carrinho.`;
   $('#cart-feedback').textContent = message;
   showToast('Produto adicionado ao carrinho');
 });
