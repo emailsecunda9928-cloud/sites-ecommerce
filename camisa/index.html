@@ -160,6 +160,136 @@
         .product-buy .add-to-cart{font-size:12px;letter-spacing:.04em}
       }
       @media(max-width:390px){.product-panel{padding:16px 13px}.product-panel h1{font-size:21px}.price-line>strong{font-size:24px}.product-highlight{font-size:7px}.product-buy{gap:10px}}
+      /* Referência visual Netshoes: tipografia utilitária, fundo branco, bordas nítidas e CTA escuro. */
+      :root{
+        --ink:#23282e;--muted:#5a6676;--line:#d9dde3;--paper:#fff;--canvas:#f5f6f7;--sand:#f0f2f4;
+        --accent:#078b4d;--accent-dark:#180a09;--success:#008f5a;--brand-soft:#f1f7f3;--brand-gold:#e5aa1b;
+        --font-body:Arial,Helvetica,sans-serif;--font-display:Arial,Helvetica,sans-serif
+      }
+      body{background:#fff;color:var(--ink)}
+      .announcement{background:#180a09}
+      .announcement__item span{color:#9fdf60}
+      .site-header{background:#fff;border-bottom-color:#e0e3e7}
+      .wordmark{font-family:var(--font-display);font-size:22px;font-weight:700;letter-spacing:.04em}
+      .wordmark small{color:var(--accent);font-weight:600;letter-spacing:.12em}
+      .main-nav a{color:#414852;font-size:11px;font-weight:600}
+      .main-nav a:hover,.footer-column a:hover{color:var(--accent)}
+      .cart-count{background:#180a09;color:#fff}
+      .breadcrumbs{color:#77818e;font-size:11px}
+      .breadcrumbs span:last-child{color:#23282e;font-weight:600}
+      .product-layout{gap:clamp(24px,3vw,44px);padding-top:8px}
+      .photo-card--main{aspect-ratio:1;border:1px solid #e1e4e8;border-radius:0;background:#f3f4f6;box-shadow:none}
+      .photo-card--main img{border-radius:0}
+      .photo-placeholder{background:#f3f4f6;color:#697382}
+      .photo-placeholder svg{stroke:#bdc3cc}
+      .photo-placeholder strong{border-radius:0;background:#fff;color:#343b44;box-shadow:none}
+      .photo-placeholder span{color:#77818e}
+      .photo-count{border-radius:0;background:#180a09;color:#fff}
+      .gallery-thumbnail{aspect-ratio:1;border-color:#d9dde3;border-radius:0;background:#f3f4f6}
+      .gallery-thumbnail:hover,.gallery-thumbnail[aria-pressed=true]{border-color:#180a09;box-shadow:0 0 0 1px #180a09}
+      .product-panel{padding:10px 0 0;border:0;border-radius:0;background:#fff;box-shadow:none}
+      .product-brand{color:#5a6676;font-size:12px;font-weight:600;letter-spacing:.04em}
+      .product-panel h1{color:#23282e;font-size:24px;font-weight:400;line-height:1.25;letter-spacing:0}
+      .product-code{color:#687484}
+      .product-rating-link{font-size:11px}
+      .product-rating-link span{color:#e5aa1b}
+      .product-rating-link a{color:#23282e;text-decoration-color:#9aa2ad}
+      .stock-status{width:auto;max-width:100%;padding:0;border-radius:0;background:transparent;color:#087846;font-size:11px;font-weight:600}
+      .stock-dot{background:#078b4d}
+      .price-block{padding:12px 0 14px;border:0;border-bottom:1px solid var(--line);border-radius:0;background:transparent}
+      .old-price{color:#77818e}
+      .price-line>strong{color:#23282e;font-size:26px;font-weight:700;letter-spacing:0}
+      .discount-tag{padding:4px 8px;border-radius:0;background:#078b4d;color:#fff;font-weight:700}
+      .installments{color:#5a6676;font-size:12px}
+      .pix-price{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin-top:8px;padding:0;border-radius:0;background:transparent;color:#5a6676;font-size:12px}
+      .pix-price strong{color:#23282e}
+      .pix-price span{margin:0;padding:4px 7px;border-radius:0;background:#e8f4ec;color:#087846;font-size:10px;font-weight:700}
+      .product-highlights{gap:7px;margin:12px 0 2px}
+      .product-highlight{padding:7px 9px;border:1px solid #e0e3e7;border-radius:0;background:#f7f8f9;color:#414852;font-size:10px;font-weight:500}
+      .product-highlight::before{color:#078b4d}
+      .color-picker,.size-picker{margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}
+      .field-heading{margin-bottom:10px;font-size:14px;font-weight:600}
+      .field-heading>span{color:#23282e;font-weight:600}
+      .field-heading strong{color:#414852;font-size:13px;font-weight:500}
+      .field-heading a{color:#23282e;font-size:11px;font-weight:500}
+      .color-swatch{width:54px;height:54px;border:1px solid #bfc2ce;border-radius:0;padding:3px;box-shadow:none}
+      .color-swatch::after{border-radius:0}
+      .color-swatch[aria-pressed=true]{outline:1px solid #180a09;outline-offset:1px}
+      .size-options{gap:8px}
+      .size-option{min-width:56px;height:36px;border:1px solid #bfc2ce;border-radius:0;background:#fff;color:#180a09;font-size:14px;font-weight:400;transition:background .15s,border-color .15s}
+      .size-option:hover:not(:disabled){transform:none;border-color:#180a09;background:#f7f8f9}
+      .size-option[aria-pressed=true]{border-color:#180a09;background:#180a09;color:#fff;box-shadow:none}
+      .size-option:disabled{border-color:#d9dde3;background:#f5f6f7;color:#a1a7af}
+      .selection-hint{color:#687484;font-size:11px}
+      .quantity-control{border:1px solid #bfc2ce;border-radius:0;background:#fff;padding:0 5px}
+      .quantity-button{border-radius:0;color:#180a09}
+      .product-buy .add-to-cart{height:48px;border:0;border-radius:0;background:#180a09;color:#fbfafb;font-size:16px;font-weight:500;letter-spacing:0;text-transform:none;box-shadow:none}
+      .product-buy .add-to-cart:hover{transform:none;background:#000;color:#fff;box-shadow:none}
+      .product-buy .add-to-cart:focus-visible{outline-color:rgba(7,139,77,.35)}
+      .cart-feedback{color:#087846;font-weight:500}
+      .secure-note{width:auto;max-width:100%;padding:0;border-radius:0;background:transparent;color:#687484;font-size:11px}
+      .shipping-box{margin-top:10px;padding:16px 0 14px;border:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);border-radius:0;background:#fff}
+      .shipping-box h2{color:#23282e;font-size:16px;font-weight:600}
+      .shipping-form{height:44px;border-color:#bfc2ce;border-radius:0;background:#fff}
+      .shipping-form:focus-within{border-color:#180a09;box-shadow:0 0 0 2px rgba(24,10,9,.08)}
+      .shipping-form input{font-size:13px}
+      .shipping-form button{background:#180a09;color:#fff;font-size:11px;font-weight:600;letter-spacing:0}
+      .shipping-help{color:#414852;font-size:11px;font-weight:500}
+      .shipping-feedback{color:#5a6676;font-size:11px}
+      .product-details summary{color:#180a09;font-size:14px;font-weight:600;letter-spacing:.03em;text-transform:uppercase}
+      .product-details summary::after{color:#180a09}
+      .product-details details p{color:#5a6676;font-size:12px}
+      .reviews-section{margin-top:72px;padding:30px 0;border:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);border-radius:0;background:#fff}
+      .section-heading h2,.newsletter h2{color:#23282e;font-family:var(--font-display);font-size:24px;font-weight:600}
+      .outline-button{height:42px;border:1px solid #180a09;border-radius:0;background:#fff;color:#180a09;font-size:12px;font-weight:600;letter-spacing:0}
+      .outline-button:hover{border-color:#180a09;background:#180a09;color:#fff}
+      .review-card,.review-form{border:1px solid var(--line);border-radius:0;background:#f7f8f9}
+      .review-card__stars,.rating-input{color:#e5aa1b}
+      .newsletter{margin:0 0 48px;padding:30px;border:1px solid var(--line);border-radius:0;background:#f5f6f7;color:#23282e;box-shadow:none}
+      .newsletter .eyebrow{color:#078b4d}
+      .newsletter h2{color:#23282e}
+      .newsletter-copy>p:last-child{color:#5a6676}
+      .newsletter-form input{border:1px solid #bfc2ce;border-radius:0;background:#fff;font-size:12px}
+      .newsletter-form button{border:0;border-radius:0;background:#180a09;color:#fff;font-size:12px;font-weight:600}
+      .site-footer{background:#f5f6f7}
+      .footer-column h2{color:#23282e}
+      .footer-bottom{border-top-color:#d9dde3}
+      .toast{border-radius:0;background:#180a09;box-shadow:0 8px 24px #0003}
+      .search-panel{border:1px solid #d9dde3;border-radius:0;box-shadow:0 8px 24px #00000014}
+      .search-panel input{border-radius:0}
+      .search-panel button{border-radius:0;background:#180a09}
+      input:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid rgba(7,139,77,.28);outline-offset:2px}
+      @media(max-width:760px){
+        .site-header{background:#fff}
+        .product-layout{gap:20px}
+        .wordmark{white-space:nowrap;font-size:17px;letter-spacing:.02em}
+        .breadcrumbs{min-height:36px}
+        .photo-card--main{aspect-ratio:1.1;border-radius:0;background:#f3f4f6}
+        .photo-card--main img{border-radius:0;object-fit:contain}
+        .gallery-thumbnail{aspect-ratio:1}
+        .product-panel{padding:0;border:0;border-radius:0;background:#fff;box-shadow:none}
+        .product-panel h1{font-size:22px}
+        .price-block{padding:12px 0}
+        .price-line>strong{font-size:25px}
+        .size-option{min-width:52px;height:36px}
+        .shipping-box{padding:15px 0}
+        .reviews-section{margin-top:50px;padding:25px 0;border-radius:0}
+        .newsletter{margin-bottom:30px;padding:24px 18px;border-radius:0}
+        .product-buy{gap:10px;border-top:1px solid var(--line);box-shadow:0 -4px 16px rgba(0,0,0,.08)}
+        .quantity-control{height:48px;border-radius:0}
+        .quantity-control input{height:36px}
+        .product-buy .add-to-cart{height:48px;font-size:14px;letter-spacing:0}
+        .toast{bottom:calc(80px + env(safe-area-inset-bottom))}
+      }
+      @media(max-width:390px){
+        .product-panel{padding:0}
+        .product-panel h1{font-size:20px}
+        .wordmark{font-size:16px}
+        .size-option{min-width:48px}
+        .product-buy{gap:8px;padding-left:10px;padding-right:10px}
+        .quantity-control{flex-basis:108px;height:48px}
+        .product-buy .add-to-cart{font-size:13px}
+      }
     </style>
   </head>
   <body>
@@ -205,7 +335,7 @@
             <p class="old-price" id="old-price" hidden></p>
             <div class="price-line"><strong id="product-price">R$ 0,00</strong><span class="discount-tag" id="discount-tag" hidden></span></div>
             <p class="installments" id="installments">ou 2x de R$ 0,00</p>
-            <p class="pix-price">ou <strong id="pix-price">R$ 0,00</strong> no PIX <span id="pix-discount"></span></p>
+            <p class="pix-price"><strong id="pix-price">R$ 0,00</strong> <span id="pix-discount"></span></p>
           </div>
           <div class="product-highlights" id="product-highlights" aria-label="Destaques do produto"></div>
 
@@ -307,7 +437,7 @@
 const STORE = {
   name: 'NOME DA SUA MARCA',
   tagline: 'SUA FRASE DE MARCA',
-  promotions: ['SUA OFERTA PROMOCIONAL AQUI', 'INFORME UMA CONDIÇÃO DE PAGAMENTO', 'CADASTRE SEU BENEFÍCIO DE FRETE', 'SUA MENSAGEM DE ATENDIMENTO'],
+  promotions: ['CAMISETA GRÁTIS • ENVIO E LOGÍSTICA DEFINIDOS ANTES DA CONFIRMAÇÃO', 'Oferta sujeita à disponibilidade de estoque e tamanhos', 'Sem cobrança recorrente', 'Esta demonstração não processa pagamentos'],
   navigation: ['NOVIDADES', 'ROUPAS', 'ACESSÓRIOS', 'SALE'],
   social: [{ label: 'Instagram', url: '#' }, { label: 'Facebook', url: '#' }],
   email: 'seuemail@seudominio.com.br',
@@ -319,30 +449,29 @@ const STORE = {
 
 const PRODUCT = {
   brand: 'NOME DA SUA MARCA',
-  name: 'NOME DO PRODUTO',
+  name: 'Camiseta Casual Corinthians',
   sku: 'SKU DO PRODUTO',
-  category: 'CATEGORIA',
-  subcategory: 'SUBCATEGORIA',
-  availability: 'INFORME A DISPONIBILIDADE',
+  category: 'Camisas de time',
+  subcategory: 'Corinthians',
+  availability: 'Oferta sujeita à disponibilidade de estoque e tamanhos',
   price: 0,
-  compareAtPrice: 0, // Preencha para exibir um preço anterior e o percentual de desconto.
-  pixDiscountPercent: 5,
-  installments: 2,
-  colorName: 'CADASTRE A COR',
-  colorHex: '#e6d9c6',
-  highlights: ['CADASTRE O DIFERENCIAL 1', 'CADASTRE O DIFERENCIAL 2', 'CADASTRE O DIFERENCIAL 3'],
+  compareAtPrice: 79.90, // Preço de referência da oferta do anexo; edite para refletir sua campanha.
+  pixDiscountPercent: 0,
+  installments: 1,
+  colorName: 'Preto',
+  colorHex: '#111111',
+  highlights: ['CAMISETA GRÁTIS', 'Envio e logística definidos antes da confirmação', 'Sem cobrança recorrente'],
   sizes: [
     { label: 'P', available: true },
     { label: 'M', available: true },
     { label: 'G', available: true },
-    { label: 'GG', available: true },
-    { label: 'GGG', available: false }
+    { label: 'GG', available: false }
   ],
-  images: ['', ''], // Exemplo: ['images/frente.jpg', 'images/costas.jpg']
-  description: 'Adicione aqui uma descrição completa do seu produto: composição, caimento, cuidados e outros detalhes.',
+  images: ['/manus-storage/offer-1_160314ce.webp', '/manus-storage/offer-2_64767235.webp', '/manus-storage/offer-3_b9908176.webp', '/manus-storage/offer-4_3cb57038.webp', '/manus-storage/offer-5_a213570f.webp'], // Fotos fornecidas no código da oferta.
+  description: 'Camiseta Casual Corinthians oferecida como cortesia promocional, sujeita à disponibilidade de estoque e tamanhos. O valor do envio e da logística será informado antes da confirmação. Esta demonstração não processa pagamentos nem cria cobranças recorrentes. Esta oferta não afirma vínculo oficial com o Corinthians.',
   sizeGuide: 'Insira aqui as medidas e orientações para ajudar sua cliente a escolher o tamanho ideal.',
-  returnsPolicy: 'Preencha aqui a política de trocas e devoluções da sua loja.',
-  shippingMessage: 'Prazo e valores: cadastre as opções de entrega da sua loja.'
+  returnsPolicy: 'Consulte a política de trocas e devoluções da loja. A oferta está sujeita à disponibilidade de estoque e tamanhos. A página é uma demonstração e não processa pagamentos.',
+  shippingMessage: 'A camiseta é grátis. O valor do envio e da logística será informado antes da confirmação. Esta demonstração não calcula o frete nem processa pagamentos.'
 };
 
 const money = value => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value || 0);
@@ -377,7 +506,7 @@ function renderPageData() {
     item.textContent = text;
     return item;
   }));
-  $('#shipping-feedback').textContent = 'Consulte as opções de entrega disponíveis para sua região.';
+  $('#shipping-feedback').textContent = PRODUCT.shippingMessage;
   $('#footer-about').textContent = STORE.about;
   $('#contact-email').textContent = STORE.email;
   $('#contact-phone').textContent = STORE.phone;
@@ -408,16 +537,19 @@ function renderPageData() {
   }));
 
   $('#product-price').textContent = money(PRODUCT.price);
-  $('#installments').textContent = `ou ${PRODUCT.installments}x de ${money(PRODUCT.price / Math.max(PRODUCT.installments, 1))}`;
+  $('#installments').textContent = 'Envio e logística: definidos antes da confirmação';
   const pixPrice = PRODUCT.price * (1 - PRODUCT.pixDiscountPercent / 100);
   $('#pix-price').textContent = money(pixPrice);
-  $('#pix-discount').textContent = PRODUCT.pixDiscountPercent ? `(${PRODUCT.pixDiscountPercent}% de desconto)` : '';
+  $('#pix-price').hidden = PRODUCT.price === 0;
+  $('#pix-discount').textContent = PRODUCT.price === 0 ? 'CAMISETA GRÁTIS' : (PRODUCT.pixDiscountPercent ? `(${PRODUCT.pixDiscountPercent}% de desconto no PIX)` : '');
+  $('#pix-discount').hidden = PRODUCT.price !== 0 && !PRODUCT.pixDiscountPercent;
   if (PRODUCT.compareAtPrice > PRODUCT.price) {
     $('#old-price').hidden = false;
-    $('#old-price').textContent = money(PRODUCT.compareAtPrice);
+    $('#old-price').textContent = `De ${money(PRODUCT.compareAtPrice)}`;
     $('#discount-tag').hidden = false;
     $('#discount-tag').textContent = `${Math.round((1 - PRODUCT.price / PRODUCT.compareAtPrice) * 100)}% OFF`;
   }
+  $('#add-to-cart').textContent = 'Quero minha camiseta grátis';
   $('#selected-color').textContent = PRODUCT.colorName;
   $('#color-options').replaceChildren();
   if (PRODUCT.colorHex) {
@@ -543,9 +675,9 @@ $('#add-to-cart').addEventListener('click', () => {
   cartItems += quantity;
   $('#cart-count').textContent = cartItems;
   $('#cart-button').setAttribute('aria-label', `Carrinho, ${cartItems} ${cartItems === 1 ? 'item' : 'itens'}`);
-  const message = `${PRODUCT.name} · tamanho ${selectedSize} · quantidade ${quantity} adicionada ao carrinho.`;
+  const message = `${PRODUCT.name} · tamanho ${selectedSize} · quantidade ${quantity} adicionada ao carrinho. Camiseta grátis; envio e logística informados antes da confirmação.`;
   $('#cart-feedback').textContent = message;
-  showToast('Produto adicionado ao carrinho');
+  showToast('Camiseta grátis adicionada ao carrinho');
 });
 
 $('#shipping-form').addEventListener('submit', event => {
