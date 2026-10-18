@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="Página de produto editável para loja de roupas." />
+    <title>NOME DO PRODUTO | NOME DA SUA MARCA</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap');
+
+:root{--ink:#242321;--muted:#77736e;--line:#e7e5e1;--paper:#fff;--canvas:#faf9f7;--sand:#f2f0ec;--accent:#a8794f;--accent-dark:#7b5739;--success:#567153;--font-body:'DM Sans',Arial,sans-serif;--font-display:'Playfair Display',Georgia,serif;--page-width:1420px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:14px;-webkit-font-smoothing:antialiased}button,input,textarea{font:inherit}button,a{ -webkit-tap-highlight-color:transparent}a{color:inherit;text-decoration:none}button{color:inherit}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.announcement{height:37px;background:#272624;color:#fff;overflow:hidden;display:flex;align-items:center}.announcement__track{width:100%;display:flex;justify-content:center;align-items:center;gap:0}.announcement__item{height:37px;display:flex;align-items:center;justify-content:center;padding:0 25px;font-size:10px;font-weight:500;letter-spacing:.075em;text-transform:uppercase;white-space:nowrap}.announcement__item+.announcement__item{border-left:1px solid #65625f}.announcement__item span{margin-right:9px;color:#cdb69e;font-size:13px}
+.site-header{height:104px;position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 max(5.5vw,34px);border-bottom:1px solid var(--line);background:#fff;z-index:5}.wordmark{display:flex;flex-direction:column;align-items:center;justify-self:center;line-height:1;text-align:center;letter-spacing:.105em;font-family:var(--font-display);font-size:23px;font-weight:600}.wordmark small{margin-top:7px;font-family:var(--font-body);font-size:8px;letter-spacing:.18em;font-weight:400}.main-nav{display:flex;align-items:center;justify-content:center;gap:28px;grid-column:2;grid-row:1}.main-nav a{font-size:10px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;transition:color .2s}.main-nav a:hover,.footer-column a:hover{color:var(--accent)}.header-actions{display:flex;align-items:center;justify-self:end;gap:19px}.icon-button,.cart-button{display:inline-flex;align-items:center;justify-content:center;border:0;background:transparent;padding:4px;cursor:pointer}.icon-button svg,.cart-button svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round}.cart-button{position:relative}.cart-count{position:absolute;top:-5px;right:-6px;min-width:15px;height:15px;padding:0 4px;border-radius:50%;background:var(--ink);color:white;font-size:9px;display:grid;place-items:center}.menu-toggle{display:none}.search-panel{position:absolute;top:100%;right:4.5%;z-index:8;background:#fff;padding:15px;box-shadow:0 8px 24px #00000014;display:flex;gap:8px}.search-panel[hidden]{display:none}.search-panel input{width:min(340px,65vw);border:1px solid var(--line);padding:11px}.search-panel button{border:0;background:var(--ink);color:white;padding:0 16px;font-size:10px;letter-spacing:.08em}
+.page-shell{max-width:var(--page-width);margin:0 auto;padding:0 5.5vw}.breadcrumbs{display:flex;align-items:center;gap:10px;min-height:57px;color:#85817c;font-size:10px;letter-spacing:.025em}.breadcrumbs a:hover{color:var(--ink)}.breadcrumbs span:last-child{color:var(--ink)}
+.product-layout{display:grid;grid-template-columns:minmax(0,1.56fr) minmax(320px,.84fr);align-items:start;gap:clamp(48px,7vw,108px);padding-top:15px}.gallery-column{min-width:0}.gallery{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}.photo-card{position:relative;aspect-ratio: .77;background:#f5f4f1;overflow:hidden;cursor:zoom-in}.photo-card img{width:100%;height:100%;object-fit:cover;display:block}.photo-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:15px;color:#8a857f;background:linear-gradient(155deg,#f5f4f1 0%,#efede9 100%);text-align:center}.photo-placeholder svg{width:68px;height:88px;stroke:#c0bcb5;fill:none;stroke-width:1.05}.photo-placeholder strong{font-size:9px;font-weight:500;letter-spacing:.12em;text-transform:uppercase}.photo-placeholder span{font-size:10px;color:#a39e97}.photo-count{position:absolute;bottom:12px;right:12px;padding:6px 8px;background:#ffffffd9;color:#555;font-size:9px;letter-spacing:.04em}.gallery-note{margin:10px 0 0;color:#aaa49c;font-size:9px;letter-spacing:.02em}.product-panel{padding:4px 0 0}.eyebrow{margin:0 0 9px;color:var(--muted);font-size:9px;font-weight:600;letter-spacing:.17em;text-transform:uppercase}.product-panel h1{margin:0;font-size:22px;line-height:1.35;font-weight:400;letter-spacing:.015em}.product-code{margin:9px 0 17px;color:#8a857f;font-size:10px}.stock-status{display:flex;align-items:center;gap:7px;margin:0 0 20px;color:#617b5c;font-size:10px}.stock-dot{width:6px;height:6px;border-radius:50%;background:#718a6c}.price-block{padding:15px 0 17px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.old-price{margin:0 0 3px;color:#999;font-size:12px;text-decoration:line-through}.price-line{display:flex;align-items:center;gap:9px}.price-line>strong{font-size:22px;font-weight:500;letter-spacing:.02em}.discount-tag{padding:4px 7px;background:#f1eee8;color:#6a523c;font-size:9px;letter-spacing:.05em}.installments{margin:5px 0 0;color:#77736e;font-size:11px}.pix-price{margin:5px 0 0;color:#77736e;font-size:11px}.pix-price strong{color:var(--ink);font-weight:600}.pix-price span{margin-left:4px;color:var(--success);font-size:10px}.color-picker,.size-picker{margin-top:21px}.field-heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-size:11px}.field-heading>span{color:#77736e}.field-heading strong{font-size:10px;font-weight:500;letter-spacing:.04em}.field-heading a{font-size:10px;color:#77736e;text-decoration:underline;text-underline-offset:3px}.color-options{display:flex;gap:10px}.color-swatch{width:25px;height:25px;border:1px solid #d9d6d1;border-radius:50%;padding:3px;background:#fff;cursor:pointer}.color-swatch::after{content:'';display:block;width:100%;height:100%;border-radius:50%;background:var(--swatch,#eee)}.color-swatch[aria-pressed=true]{outline:1px solid var(--ink);outline-offset:2px}.size-options{display:flex;flex-wrap:wrap;gap:8px}.size-option{min-width:44px;height:42px;padding:0 11px;border:1px solid #dcdad6;background:#fff;font-size:11px;cursor:pointer;transition:all .18s}.size-option:hover:not(:disabled),.size-option[aria-pressed=true]{border-color:var(--ink)}.size-option[aria-pressed=true]{background:var(--ink);color:white}.size-option:disabled{color:#bbb8b3;background:#f8f7f5;text-decoration:line-through;cursor:not-allowed}.selection-hint{min-height:14px;margin:8px 0 0;color:#9b958d;font-size:9px}.add-to-cart{width:100%;height:51px;margin-top:18px;border:1px solid var(--ink);background:var(--ink);color:white;font-size:10px;font-weight:600;letter-spacing:.11em;cursor:pointer;transition:background .2s,color .2s}.add-to-cart:hover{background:#fff;color:var(--ink)}.cart-feedback{min-height:16px;margin:7px 0 0;color:var(--success);font-size:10px}.secure-note{display:flex;align-items:center;gap:7px;margin:8px 0 23px;color:#89847d;font-size:9px}.secure-note svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.25}.shipping-box{padding:17px 0 14px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.shipping-box h2{margin:0 0 11px;font-size:12px;font-weight:500}.shipping-form{display:flex;border:1px solid #dcdad6;height:42px}.shipping-form input{min-width:0;flex:1;border:0;padding:0 12px;outline:0;font-size:11px}.shipping-form button{border:0;background:transparent;padding:0 13px;font-size:9px;letter-spacing:.08em;cursor:pointer}.shipping-help{display:inline-block;margin-top:8px;color:#77736e;font-size:9px;text-decoration:underline;text-underline-offset:2px}.shipping-feedback{margin:7px 0 0;color:#77736e;font-size:10px;line-height:1.5}.shipping-feedback.is-error{color:#a33}.product-details{margin-top:5px}.product-details details{border-bottom:1px solid var(--line)}.product-details summary{position:relative;padding:15px 20px 15px 0;list-style:none;font-size:10px;letter-spacing:.04em;cursor:pointer}.product-details summary::-webkit-details-marker{display:none}.product-details summary::after{content:'+';position:absolute;right:2px;top:12px;color:#777;font-size:16px;font-weight:300}.product-details details[open] summary::after{content:'−'}.product-details details p{margin:0;padding:0 14px 16px 0;color:#77736e;font-size:10px;line-height:1.8}
+.reviews-section{margin-top:100px;padding:39px 0 47px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.section-heading{display:flex;justify-content:space-between;align-items:flex-end}.section-heading h2,.newsletter h2{margin:0;font-family:var(--font-display);font-size:27px;font-weight:500}.outline-button{height:39px;padding:0 19px;border:1px solid #aaa49c;background:transparent;font-size:9px;letter-spacing:.09em;cursor:pointer;transition:all .2s}.outline-button:hover{border-color:var(--ink);background:var(--ink);color:#fff}.reviews-empty{margin:27px 0 0;color:#77736e;font-size:11px}.review-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:20px}.review-card{padding:18px;background:var(--canvas)}.review-card__stars,.rating-input{color:#a8794f;letter-spacing:.15em}.review-card h3{margin:8px 0 4px;font-size:11px;font-weight:600}.review-card p{margin:0;color:#77736e;font-size:11px;line-height:1.7}.review-form{max-width:500px;margin-top:24px;padding:22px;background:var(--canvas);display:grid;gap:9px}.review-form[hidden]{display:none}.review-form h3{margin:0 0 6px;font-size:14px;font-weight:500}.review-form label{font-size:10px;color:#777}.review-form input,.review-form textarea{width:100%;padding:11px;border:1px solid var(--line);background:#fff;resize:vertical}.rating-input{display:flex;gap:5px;margin:0 0 7px}.rating-input button{border:0;background:transparent;padding:1px;color:#b8b3ab;font-size:22px;cursor:pointer}.rating-input button[aria-pressed=true],.rating-input button.is-lit{color:var(--accent)}.review-form .outline-button{justify-self:start;margin-top:5px}
+.newsletter{display:flex;justify-content:space-between;align-items:center;gap:50px;padding:52px 0}.newsletter-copy{max-width:440px}.newsletter-copy>p:last-child{margin:10px 0 0;color:#77736e;font-size:11px;line-height:1.6}.newsletter-form{width:min(495px,52%);display:grid;grid-template-columns:1fr 1fr;gap:8px}.newsletter-form input{height:42px;min-width:0;padding:0 12px;border:1px solid var(--line);font-size:10px}.newsletter-form button{grid-column:1/-1;height:42px;border:1px solid var(--ink);background:var(--ink);color:white;font-size:9px;letter-spacing:.09em;cursor:pointer}.form-feedback{grid-column:1/-1;min-height:14px;margin:0;color:var(--success);font-size:10px}.site-footer{padding:40px max(5.5vw,34px) 0;background:#f5f4f1}.footer-main{max-width:var(--page-width);margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:50px;padding-bottom:38px}.footer-brand .wordmark{align-items:flex-start;justify-self:start;font-size:20px}.footer-brand .wordmark small{font-size:7px}.footer-brand>p{max-width:270px;margin:18px 0;color:#77736e;font-size:10px;line-height:1.8}.social-links{display:flex;gap:16px}.social-links a{font-size:9px;text-transform:uppercase;letter-spacing:.06em}.footer-column{display:flex;flex-direction:column;align-items:flex-start;gap:12px}.footer-column h2{margin:0 0 4px;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}.footer-column a,.footer-column span{color:#716d67;font-size:10px;line-height:1.5}.footer-bottom{max-width:var(--page-width);margin:0 auto;border-top:1px solid #e2dfd9;padding:17px 0 19px;display:flex;justify-content:space-between;gap:20px;color:#8c8780;font-size:8px;letter-spacing:.035em}.toast{position:fixed;left:50%;bottom:24px;z-index:20;transform:translate(-50%,20px);padding:12px 18px;background:var(--ink);color:white;font-size:11px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}.toast.is-visible{opacity:1;transform:translate(-50%,0)}
+@media(min-width:1450px){.page-shell{padding:0 78px}.site-header{padding-left:max(calc((100vw - 1264px)/2),50px);padding-right:max(calc((100vw - 1264px)/2),50px)}}
+@media(max-width:1080px){.site-header{padding:0 4vw;grid-template-columns:1fr auto 1fr}.main-nav{gap:17px}.main-nav a{font-size:9px}.header-actions{gap:12px}.product-layout{gap:44px;grid-template-columns:minmax(0,1.3fr) minmax(300px,.85fr)}.page-shell{padding:0 4vw}}
+@media(max-width:760px){.announcement{height:34px}.announcement__track{justify-content:flex-start;overflow:hidden}.announcement__item{height:34px;flex:0 0 100%;font-size:9px;padding:0 10px;animation:promo-swap 18s infinite}.announcement__item+.announcement__item{border:0}@keyframes promo-swap{0%,20%{transform:translateX(0)}25%,45%{transform:translateX(-100%)}50%,70%{transform:translateX(-200%)}75%,95%{transform:translateX(-300%)}100%{transform:translateX(0)}}.site-header{height:76px;padding:0 19px;grid-template-columns:42px 1fr 85px}.menu-toggle{display:flex;flex-direction:column;gap:5px;grid-column:1;grid-row:1;justify-self:start}.menu-toggle span{width:19px;height:1px;background:var(--ink)}.wordmark{grid-column:2;grid-row:1;font-size:19px}.wordmark small{font-size:7px}.main-nav{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);padding:18px 22px;align-items:flex-start;flex-direction:column;gap:18px}.main-nav.is-open{display:flex}.header-actions{grid-column:3;grid-row:1;gap:10px}.account-link{display:none}.header-actions .icon-button svg,.cart-button svg{width:19px;height:19px}.page-shell{padding:0 19px}.breadcrumbs{min-height:48px;gap:7px;font-size:9px;white-space:nowrap;overflow-x:auto}.product-layout{display:flex;flex-direction:column;gap:23px;padding-top:4px}.gallery-column,.product-panel{width:100%}.gallery{grid-template-columns:1fr 1fr;gap:6px}.photo-card{aspect-ratio:.72}.photo-placeholder svg{width:48px;height:66px}.photo-placeholder strong{font-size:8px}.gallery-note{font-size:8px}.product-panel{padding:8px 0 0}.product-panel h1{font-size:19px}.price-line>strong{font-size:21px}.reviews-section{margin-top:64px;padding:31px 0}.section-heading{align-items:center;gap:10px}.section-heading h2,.newsletter h2{font-size:24px}.section-heading .eyebrow{font-size:8px}.outline-button{height:36px;padding:0 11px;font-size:8px}.reviews-empty{font-size:10px;line-height:1.7}.review-list{grid-template-columns:1fr}.newsletter{padding:38px 0;display:block}.newsletter-form{width:100%;margin-top:22px}.footer-main{grid-template-columns:1fr 1fr;gap:32px 20px;padding-bottom:30px}.footer-brand{grid-column:1/-1}.footer-brand>p{margin:13px 0}.footer-bottom{flex-direction:column;gap:7px;font-size:8px}.site-footer{padding:33px 19px 0}}
+@media(max-width:390px){.header-actions{gap:6px}.site-header{padding:0 14px;grid-template-columns:34px 1fr 75px}.wordmark{font-size:16px}.page-shell{padding:0 14px}.footer-main{gap:28px 13px}.footer-column a,.footer-column span{font-size:9px}}
+
+.photo-card{display:block;border:0;padding:0;text-align:left;appearance:none;color:inherit}
+
+.gallery{display:grid;grid-template-columns:minmax(0,1fr) 88px;gap:10px;align-items:start}
+.photo-card--main{aspect-ratio:.77;cursor:default}
+.gallery-thumbnails{display:flex;flex-direction:column;gap:8px;max-height:min(75vw,520px);overflow-y:auto}
+.gallery-thumbnail{display:block;width:100%;aspect-ratio:.77;padding:0;border:1px solid #dcdad6;background:#f5f4f1;overflow:hidden;cursor:pointer;appearance:none}
+.gallery-thumbnail:hover,.gallery-thumbnail[aria-pressed=true]{border-color:var(--ink)}
+.gallery-thumbnail img{display:block;width:100%;height:100%;object-fit:cover}
+.thumbnail-placeholder{display:grid;width:100%;height:100%;place-items:center;background:linear-gradient(155deg,#f5f4f1 0%,#efede9 100%)}
+.thumbnail-placeholder svg{width:24px;height:32px;fill:none;stroke:#b9b4ac;stroke-width:1.2}
+@media(max-width:760px){.gallery{grid-template-columns:minmax(0,1fr);gap:8px}.photo-card--main{aspect-ratio:.83}.gallery-thumbnails{flex-direction:row;gap:7px;max-height:none;overflow-x:auto;overflow-y:hidden;padding:1px 0 4px}.gallery-thumbnail{flex:0 0 58px;width:58px;aspect-ratio:.77}.thumbnail-placeholder svg{width:22px;height:29px}}
+@media(max-width:390px){.gallery{gap:7px}.photo-card--main{aspect-ratio:.82}.gallery-thumbnail{flex-basis:52px;width:52px}}
+
+    </style>
+  </head>
+  <body>
+    <div class="announcement" aria-label="Ofertas da loja">
+      <div class="announcement__track" id="promotions"></div>
+    </div>
+
+    <header class="site-header">
+      <button class="icon-button menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+      <a class="wordmark" href="#top" aria-label="Página inicial"><span id="brand-name">NOME DA SUA MARCA</span><small id="brand-tagline">SUA FRASE DE MARCA</small></a>
+      <nav class="main-nav" id="main-nav" aria-label="Navegação principal"></nav>
+      <div class="header-actions">
+        <button class="icon-button search-toggle" type="button" aria-label="Buscar" title="Buscar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></button>
+        <a class="icon-button account-link" href="#atendimento" aria-label="Minha conta" title="Minha conta"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.4"></circle><path d="M5 21c.5-4 3-6 7-6s6.5 2 7 6"></path></svg></a>
+        <button class="cart-button" id="cart-button" type="button" aria-label="Carrinho, 0 itens"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 11.2h11.6L21 8H6"></path><circle cx="9" cy="20" r="1"></circle><circle cx="18" cy="20" r="1"></circle></svg><span class="cart-count" id="cart-count">0</span></button>
+      </div>
+      <form class="search-panel" id="search-panel" role="search" hidden>
+        <label class="sr-only" for="site-search">Buscar produtos</label>
+        <input id="site-search" type="search" placeholder="O que você está procurando?" />
+        <button type="submit">Buscar</button>
+      </form>
+    </header>
+
+    <main id="top" class="page-shell">
+      <nav class="breadcrumbs" aria-label="Você está em"><a href="#top">Início</a><span>/</span><a id="crumb-category" href="#categorias">CATEGORIA</a><span>/</span><a id="crumb-subcategory" href="#categorias">SUBCATEGORIA</a><span>/</span><span id="crumb-product" aria-current="page">NOME DO PRODUTO</span></nav>
+
+      <section class="product-layout" id="categorias" aria-labelledby="product-title">
+        <div class="gallery-column">
+          <div class="gallery" id="product-gallery" aria-label="Galeria de fotos do produto"></div>
+          <p class="gallery-note">Use as miniaturas para visualizar outras fotos do produto.</p>
+        </div>
+
+        <div class="product-panel">
+          <p class="eyebrow" id="product-brand">NOME DA SUA MARCA</p>
+          <h1 id="product-title">NOME DO PRODUTO</h1>
+          <p class="product-code">Ref. <span id="product-sku">SKU DO PRODUTO</span></p>
+          <p class="stock-status"><span class="stock-dot" aria-hidden="true"></span><span id="product-stock">INFORME A DISPONIBILIDADE</span></p>
+
+          <div class="price-block" aria-live="polite">
+            <p class="old-price" id="old-price" hidden></p>
+            <div class="price-line"><strong id="product-price">R$ 0,00</strong><span class="discount-tag" id="discount-tag" hidden></span></div>
+            <p class="installments" id="installments">ou 2x de R$ 0,00</p>
+            <p class="pix-price">ou <strong id="pix-price">R$ 0,00</strong> no PIX <span id="pix-discount"></span></p>
+          </div>
+
+          <div class="color-picker">
+            <div class="field-heading"><span>Cor</span><strong id="selected-color">CADASTRE A COR</strong></div>
+            <div id="color-options" class="color-options"></div>
+          </div>
+
+          <div class="size-picker">
+            <div class="field-heading"><span>Tamanho</span><a href="#guia-tamanhos" id="size-guide-link">Guia de tamanhos</a></div>
+            <div class="size-options" id="size-options" role="group" aria-label="Escolha um tamanho"></div>
+            <p class="selection-hint" id="size-hint">Selecione um tamanho</p>
+          </div>
+
+          <button class="add-to-cart" id="add-to-cart" type="button">ADICIONAR AO CARRINHO</button>
+          <p class="cart-feedback" id="cart-feedback" aria-live="polite"></p>
+          <p class="secure-note"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3.5" y="8" width="13" height="10" rx="1.5"></rect><path d="M6.5 8V5.5a3.5 3.5 0 0 1 7 0V8"></path></svg>Compra segura • Troca fácil</p>
+
+          <section class="shipping-box" aria-labelledby="shipping-title">
+            <h2 id="shipping-title">Calcule o frete</h2>
+            <form id="shipping-form" class="shipping-form">
+              <label class="sr-only" for="postal-code">Digite seu CEP</label>
+              <input id="postal-code" name="postal-code" inputmode="numeric" autocomplete="postal-code" maxlength="9" placeholder="Digite seu CEP" />
+              <button type="submit">CALCULAR</button>
+            </form>
+            <a class="shipping-help" href="#atendimento">Não sei meu CEP</a>
+            <p class="shipping-feedback" id="shipping-feedback" aria-live="polite">Consulte as opções de entrega disponíveis para sua região.</p>
+          </section>
+
+          <div class="product-details">
+            <details open>
+              <summary>Descrição do produto</summary>
+              <p id="product-description">Adicione aqui uma descrição completa do seu produto: composição, caimento, cuidados e outros detalhes.</p>
+            </details>
+            <details id="guia-tamanhos">
+              <summary>Guia de tamanhos</summary>
+              <p id="size-guide">Insira aqui as medidas e orientações para ajudar sua cliente a escolher o tamanho ideal.</p>
+            </details>
+            <details>
+              <summary>Trocas e devoluções</summary>
+              <p id="returns-policy">Preencha aqui a política de trocas e devoluções da sua loja.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="reviews-section" id="avaliacoes" aria-labelledby="reviews-title">
+        <div class="section-heading">
+          <div><p class="eyebrow">A opinião de quem escolheu</p><h2 id="reviews-title">Avaliações</h2></div>
+          <button id="review-open" class="outline-button" type="button">DEIXE SUA AVALIAÇÃO</button>
+        </div>
+        <p id="reviews-empty" class="reviews-empty">Ainda não há avaliações para este produto. Seja a primeira pessoa a avaliar.</p>
+        <div class="review-list" id="review-list" aria-live="polite"></div>
+        <form id="review-form" class="review-form" hidden>
+          <h3>Conte para a gente o que achou</h3>
+          <div class="rating-input" id="rating-input" role="group" aria-label="Sua nota de 1 a 5 estrelas"></div>
+          <label for="reviewer-name">Seu nome</label><input id="reviewer-name" name="name" required placeholder="Como podemos te chamar?" />
+          <label for="review-text">Sua avaliação</label><textarea id="review-text" name="review" required rows="3" placeholder="Escreva sua opinião"></textarea>
+          <button class="outline-button" type="submit">ENVIAR AVALIAÇÃO</button>
+          <p class="form-feedback" id="review-feedback" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="newsletter" aria-labelledby="newsletter-title">
+        <div class="newsletter-copy"><p class="eyebrow">Novidades da loja</p><h2 id="newsletter-title">Fique por dentro.</h2><p>Cadastre-se para receber novidades e ofertas da <span data-brand-inline>NOME DA SUA MARCA</span>.</p></div>
+        <form class="newsletter-form" id="newsletter-form">
+          <label class="sr-only" for="newsletter-name">Seu nome</label><input id="newsletter-name" name="name" placeholder="Seu nome" required />
+          <label class="sr-only" for="newsletter-email">Seu e-mail</label><input id="newsletter-email" name="email" type="email" placeholder="Seu e-mail" required />
+          <button type="submit">INSCREVER-SE</button>
+          <p class="form-feedback" id="newsletter-feedback" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="atendimento">
+      <div class="footer-main">
+        <div class="footer-brand"><a class="wordmark wordmark--footer" href="#top"><span data-brand-inline>NOME DA SUA MARCA</span><small id="footer-tagline">SUA FRASE DE MARCA</small></a><p id="footer-about">Conte aqui a história e os valores da sua loja.</p><div class="social-links" id="social-links" aria-label="Redes sociais"></div></div>
+        <div class="footer-column"><h2>Institucional</h2><a href="#atendimento">Sobre a marca</a><a href="#atendimento">Nossas lojas</a><a href="#atendimento">Política de privacidade</a></div>
+        <div class="footer-column"><h2>Ajuda</h2><a href="#atendimento">Fale conosco</a><a href="#atendimento">Dúvidas frequentes</a><a href="#guia-tamanhos">Trocas e devoluções</a></div>
+        <div class="footer-column"><h2>Atendimento</h2><span id="contact-email">seuemail@seudominio.com.br</span><span id="contact-phone">(00) 00000-0000</span><span id="opening-hours">Seg–Sex, das 9h às 18h</span></div>
+      </div>
+      <div class="footer-bottom"><span id="legal-info">NOME DA SUA MARCA · CNPJ 00.000.000/0000-00 · ENDEREÇO DA LOJA</span><span>© <span id="current-year"></span> <span data-brand-inline>NOME DA SUA MARCA</span>. Todos os direitos reservados.</span></div>
+    </footer>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script>
+/*
+  PERSONALIZE SUA LOJA AQUI
+  Altere os textos, valores, links, tamanhos e imagens neste objeto.
+  Para usar fotos, coloque os arquivos em uma pasta images ao lado deste HTML e use caminhos relativos.
+  As regras de frete e o envio de formulários precisam de uma integração real para processar pedidos.
+*/
+const STORE = {
+  name: 'NOME DA SUA MARCA',
+  tagline: 'SUA FRASE DE MARCA',
+  promotions: ['SUA OFERTA PROMOCIONAL AQUI', 'INFORME UMA CONDIÇÃO DE PAGAMENTO', 'CADASTRE SEU BENEFÍCIO DE FRETE', 'SUA MENSAGEM DE ATENDIMENTO'],
+  navigation: ['NOVIDADES', 'ROUPAS', 'ACESSÓRIOS', 'SALE'],
+  social: [{ label: 'Instagram', url: '#' }, { label: 'Facebook', url: '#' }],
+  email: 'seuemail@seudominio.com.br',
+  phone: '(00) 00000-0000',
+  hours: 'Seg–Sex, das 9h às 18h',
+  about: 'Conte aqui a história e os valores da sua loja.',
+  legal: 'NOME DA SUA MARCA · CNPJ 00.000.000/0000-00 · ENDEREÇO DA LOJA'
+};
+
+const PRODUCT = {
+  brand: 'NOME DA SUA MARCA',
+  name: 'NOME DO PRODUTO',
+  sku: 'SKU DO PRODUTO',
+  category: 'CATEGORIA',
+  subcategory: 'SUBCATEGORIA',
+  availability: 'INFORME A DISPONIBILIDADE',
+  price: 0,
+  compareAtPrice: 0, // Preencha para exibir um preço anterior e o percentual de desconto.
+  pixDiscountPercent: 5,
+  installments: 2,
+  colorName: 'CADASTRE A COR',
+  colorHex: '#e6d9c6',
+  sizes: [
+    { label: 'P', available: true },
+    { label: 'M', available: true },
+    { label: 'G', available: true },
+    { label: 'GG', available: true },
+    { label: 'GGG', available: false }
+  ],
+  images: ['', ''], // Exemplo: ['images/frente.jpg', 'images/costas.jpg']
+  description: 'Adicione aqui uma descrição completa do seu produto: composição, caimento, cuidados e outros detalhes.',
+  sizeGuide: 'Insira aqui as medidas e orientações para ajudar sua cliente a escolher o tamanho ideal.',
+  returnsPolicy: 'Preencha aqui a política de trocas e devoluções da sua loja.',
+  shippingMessage: 'Prazo e valores: cadastre as opções de entrega da sua loja.'
+};
+
+const money = value => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value || 0);
+const $ = selector => document.querySelector(selector);
+const $$ = selector => [...document.querySelectorAll(selector)];
+let selectedSize = '';
+let selectedImage = 0;
+let cartItems = 0;
+let rating = 0;
+let toastTimer;
+
+function renderPageData() {
+  document.title = `${PRODUCT.name} | ${STORE.name}`;
+  $('#brand-name').textContent = STORE.name;
+  $('#brand-tagline').textContent = STORE.tagline;
+  $('#footer-tagline').textContent = STORE.tagline;
+  $$('[data-brand-inline]').forEach(el => { el.textContent = STORE.name; });
+  $('#product-brand').textContent = PRODUCT.brand;
+  $('#product-title').textContent = PRODUCT.name;
+  $('#product-sku').textContent = PRODUCT.sku;
+  $('#product-stock').textContent = PRODUCT.availability;
+  $('#crumb-category').textContent = PRODUCT.category;
+  $('#crumb-subcategory').textContent = PRODUCT.subcategory;
+  $('#crumb-product').textContent = PRODUCT.name;
+  $('#product-description').textContent = PRODUCT.description;
+  $('#size-guide').textContent = PRODUCT.sizeGuide;
+  $('#returns-policy').textContent = PRODUCT.returnsPolicy;
+  $('#shipping-feedback').textContent = 'Consulte as opções de entrega disponíveis para sua região.';
+  $('#footer-about').textContent = STORE.about;
+  $('#contact-email').textContent = STORE.email;
+  $('#contact-phone').textContent = STORE.phone;
+  $('#opening-hours').textContent = STORE.hours;
+  $('#legal-info').textContent = STORE.legal;
+  $('#current-year').textContent = new Date().getFullYear();
+
+  $('#promotions').replaceChildren(...STORE.promotions.map((text, index) => {
+    const item = document.createElement('div');
+    item.className = 'announcement__item';
+    item.innerHTML = `<span aria-hidden="true">${['✳', '✳', '✳', '✳'][index % 4]}</span>`;
+    item.append(document.createTextNode(text));
+    return item;
+  }));
+  $('#main-nav').replaceChildren(...STORE.navigation.map(text => {
+    const link = document.createElement('a');
+    link.href = '#categorias';
+    link.textContent = text;
+    return link;
+  }));
+  $('#social-links').replaceChildren(...STORE.social.map(item => {
+    const link = document.createElement('a');
+    link.href = item.url;
+    link.textContent = item.label;
+    link.target = item.url.startsWith('http') ? '_blank' : '_self';
+    if (link.target === '_blank') link.rel = 'noreferrer';
+    return link;
+  }));
+
+  $('#product-price').textContent = money(PRODUCT.price);
+  $('#installments').textContent = `ou ${PRODUCT.installments}x de ${money(PRODUCT.price / Math.max(PRODUCT.installments, 1))}`;
+  const pixPrice = PRODUCT.price * (1 - PRODUCT.pixDiscountPercent / 100);
+  $('#pix-price').textContent = money(pixPrice);
+  $('#pix-discount').textContent = PRODUCT.pixDiscountPercent ? `(${PRODUCT.pixDiscountPercent}% de desconto)` : '';
+  if (PRODUCT.compareAtPrice > PRODUCT.price) {
+    $('#old-price').hidden = false;
+    $('#old-price').textContent = money(PRODUCT.compareAtPrice);
+    $('#discount-tag').hidden = false;
+    $('#discount-tag').textContent = `${Math.round((1 - PRODUCT.price / PRODUCT.compareAtPrice) * 100)}% OFF`;
+  }
+  $('#selected-color').textContent = PRODUCT.colorName;
+  $('#color-options').replaceChildren();
+  if (PRODUCT.colorHex) {
+    const swatch = document.createElement('button');
+    swatch.className = 'color-swatch';
+    swatch.type = 'button';
+    swatch.style.setProperty('--swatch', PRODUCT.colorHex);
+    swatch.setAttribute('aria-label', PRODUCT.colorName);
+    swatch.setAttribute('aria-pressed', 'true');
+    $('#color-options').append(swatch);
+  }
+  renderSizes();
+  renderGallery();
+}
+
+function shirtIcon() {
+  return '<svg viewBox="0 0 70 90" aria-hidden="true"><path d="m24 11-15 8 8 17 8-4v44h28V32l8 4 8-17-15-8c-2 6-7 9-15 9s-13-3-15-9Z"/><path d="M28 12c1 5 3 8 7 8s6-3 7-8"/></svg>';
+}
+function renderGallery() {
+  const urls = PRODUCT.images.length ? PRODUCT.images : ['', ''];
+  selectedImage = Math.min(selectedImage, urls.length - 1);
+  const main = document.createElement('div');
+  main.className = 'photo-card photo-card--main';
+  main.setAttribute('aria-live', 'polite');
+  const thumbnails = document.createElement('div');
+  thumbnails.className = 'gallery-thumbnails';
+  thumbnails.setAttribute('role', 'group');
+  thumbnails.setAttribute('aria-label', 'Miniaturas das fotos do produto');
+
+  function showImage(index) {
+    selectedImage = index;
+    const url = urls[index];
+    main.replaceChildren();
+    if (url) {
+      const img = document.createElement('img');
+      img.src = url;
+      img.alt = `${PRODUCT.name} — imagem ${index + 1}`;
+      img.loading = 'eager';
+      main.append(img);
+    } else {
+      const placeholder = document.createElement('span');
+      placeholder.className = 'photo-placeholder';
+      placeholder.innerHTML = `${shirtIcon()}<strong>Adicione sua imagem</strong><span>Foto ${index + 1} · substitua no index.html</span>`;
+      main.append(placeholder);
+    }
+    const count = document.createElement('span');
+    count.className = 'photo-count';
+    count.textContent = `${String(index + 1).padStart(2, '0')} / ${String(urls.length).padStart(2, '0')}`;
+    main.append(count);
+    [...thumbnails.children].forEach((button, buttonIndex) => {
+      button.setAttribute('aria-pressed', String(buttonIndex === index));
+    });
+  }
+
+  thumbnails.replaceChildren(...urls.map((url, index) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'gallery-thumbnail';
+    button.setAttribute('aria-label', `Ver foto ${index + 1} de ${urls.length}`);
+    button.setAttribute('aria-pressed', String(index === selectedImage));
+    if (url) {
+      const img = document.createElement('img');
+      img.src = url;
+      img.alt = '';
+      img.loading = 'lazy';
+      button.append(img);
+    } else {
+      const placeholder = document.createElement('span');
+      placeholder.className = 'thumbnail-placeholder';
+      placeholder.innerHTML = shirtIcon();
+      button.append(placeholder);
+    }
+    button.addEventListener('click', () => showImage(index));
+    return button;
+  }));
+  $('#product-gallery').replaceChildren(main, thumbnails);
+  showImage(selectedImage);
+}
+function renderSizes() {
+  $('#size-options').replaceChildren(...PRODUCT.sizes.map(({ label, available }) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'size-option';
+    button.textContent = label;
+    button.disabled = !available;
+    button.setAttribute('aria-pressed', 'false');
+    button.setAttribute('aria-label', available ? `Tamanho ${label}` : `Tamanho ${label}, indisponível`);
+    button.addEventListener('click', () => {
+      selectedSize = label;
+      $$('.size-option').forEach(option => option.setAttribute('aria-pressed', String(option === button)));
+      $('#size-hint').textContent = `Tamanho ${label} selecionado`;
+      $('#size-hint').style.color = 'var(--success)';
+      $('#cart-feedback').textContent = '';
+    });
+    return button;
+  }));
+}
+function showToast(message) {
+  const toast = $('#toast');
+  toast.textContent = message;
+  toast.classList.add('is-visible');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 2800);
+}
+
+$('#add-to-cart').addEventListener('click', () => {
+  if (!selectedSize) {
+    $('#size-hint').textContent = 'Escolha um tamanho para continuar.';
+    $('#size-hint').style.color = '#a33';
+    $('#size-options').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+  cartItems += 1;
+  $('#cart-count').textContent = cartItems;
+  $('#cart-button').setAttribute('aria-label', `Carrinho, ${cartItems} ${cartItems === 1 ? 'item' : 'itens'}`);
+  const message = `${PRODUCT.name} · tamanho ${selectedSize} adicionado ao carrinho.`;
+  $('#cart-feedback').textContent = message;
+  showToast('Produto adicionado ao carrinho');
+});
+
+$('#shipping-form').addEventListener('submit', event => {
+  event.preventDefault();
+  const input = $('#postal-code');
+  const digits = input.value.replace(/\D/g, '');
+  const output = $('#shipping-feedback');
+  output.classList.remove('is-error');
+  if (digits.length !== 8) {
+    output.textContent = 'Digite um CEP válido com 8 números.';
+    output.classList.add('is-error');
+    input.focus();
+    return;
+  }
+  output.textContent = PRODUCT.shippingMessage;
+});
+$('#postal-code').addEventListener('input', event => {
+  const digits = event.target.value.replace(/\D/g, '').slice(0, 8);
+  event.target.value = digits.length > 5 ? `${digits.slice(0, 5)}-${digits.slice(5)}` : digits;
+});
+
+$('#menu-toggle').addEventListener('click', () => {
+  const open = $('#main-nav').classList.toggle('is-open');
+  $('#menu-toggle').setAttribute('aria-expanded', String(open));
+  $('#menu-toggle').setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+});
+$('.search-toggle').addEventListener('click', () => {
+  const panel = $('#search-panel');
+  panel.hidden = !panel.hidden;
+  if (!panel.hidden) $('#site-search').focus();
+});
+$('#search-panel').addEventListener('submit', event => {
+  event.preventDefault();
+  const query = $('#site-search').value.trim();
+  showToast(query ? `Busca por “${query}” — conecte aqui o catálogo da sua loja.` : 'Digite o nome de um produto para buscar.');
+});
+$('#cart-button').addEventListener('click', () => showToast(cartItems ? `${cartItems} ${cartItems === 1 ? 'item' : 'itens'} no carrinho.` : 'Seu carrinho está vazio.'));
+$('#size-guide-link').addEventListener('click', () => { $('#guia-tamanhos').open = true; });
+
+const ratingInput = $('#rating-input');
+for (let value = 1; value <= 5; value += 1) {
+  const star = document.createElement('button');
+  star.type = 'button';
+  star.textContent = '★';
+  star.setAttribute('aria-label', `${value} ${value === 1 ? 'estrela' : 'estrelas'}`);
+  star.setAttribute('aria-pressed', 'false');
+  star.addEventListener('click', () => {
+    rating = value;
+    [...ratingInput.children].forEach((item, index) => {
+      item.classList.toggle('is-lit', index < rating);
+      item.setAttribute('aria-pressed', String(index + 1 === rating));
+    });
+  });
+  ratingInput.append(star);
+}
+$('#review-open').addEventListener('click', () => {
+  const form = $('#review-form');
+  form.hidden = !form.hidden;
+  if (!form.hidden) form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+});
+$('#review-form').addEventListener('submit', event => {
+  event.preventDefault();
+  const name = $('#reviewer-name').value.trim();
+  const text = $('#review-text').value.trim();
+  if (!rating) {
+    $('#review-feedback').textContent = 'Escolha uma nota de 1 a 5 estrelas.';
+    return;
+  }
+  const card = document.createElement('article');
+  card.className = 'review-card';
+  const stars = document.createElement('div');
+  stars.className = 'review-card__stars';
+  stars.textContent = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+  const title = document.createElement('h3');
+  title.textContent = name;
+  const body = document.createElement('p');
+  body.textContent = text;
+  card.append(stars, title, body);
+  $('#review-list').prepend(card);
+  $('#reviews-empty').hidden = true;
+  $('#review-feedback').textContent = 'Obrigada por compartilhar sua avaliação.';
+  $('#review-form').reset();
+  rating = 0;
+  [...ratingInput.children].forEach(item => { item.classList.remove('is-lit'); item.setAttribute('aria-pressed', 'false'); });
+});
+$('#newsletter-form').addEventListener('submit', event => {
+  event.preventDefault();
+  $('#newsletter-feedback').textContent = 'Cadastro recebido. Conecte este formulário ao serviço de newsletter da sua loja.';
+  event.currentTarget.reset();
+});
+
+renderPageData();
+
+    </script>
+  </body>
+</html>
