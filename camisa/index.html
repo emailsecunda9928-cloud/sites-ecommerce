@@ -437,7 +437,8 @@
 const STORE = {
   name: 'NOME DA SUA MARCA',
   tagline: 'SUA FRASE DE MARCA',
-  promotions: ['CAMISETA GRÁTIS • ENVIO E LOGÍSTICA DEFINIDOS ANTES DA CONFIRMAÇÃO', 'Oferta sujeita à disponibilidade de estoque e tamanhos', 'Sem cobrança recorrente', 'Esta demonstração não processa pagamentos'],
+  promotions: ['CAMISETA GRÁTIS • R$ 0,00 NA PEÇA'],
+  showNewsletter: false,
   navigation: ['NOVIDADES', 'ROUPAS', 'ACESSÓRIOS', 'SALE'],
   social: [{ label: 'Instagram', url: '#' }, { label: 'Facebook', url: '#' }],
   email: 'seuemail@seudominio.com.br',
@@ -448,19 +449,23 @@ const STORE = {
 };
 
 const PRODUCT = {
-  brand: 'NOME DA SUA MARCA',
+  brand: '',
   name: 'Camiseta Casual Corinthians',
-  sku: 'SKU DO PRODUTO',
+  sku: '',
   category: 'Camisas de time',
   subcategory: 'Corinthians',
-  availability: 'Oferta sujeita à disponibilidade de estoque e tamanhos',
+  availability: '',
   price: 0,
   compareAtPrice: 79.90, // Preço de referência da oferta do anexo; edite para refletir sua campanha.
   pixDiscountPercent: 0,
   installments: 1,
   colorName: 'Preto',
   colorHex: '#111111',
-  highlights: ['CAMISETA GRÁTIS', 'Envio e logística definidos antes da confirmação', 'Sem cobrança recorrente'],
+  highlights: [],
+  showColorSelector: false,
+  showQuantitySelector: false,
+  showShippingEstimator: false,
+  showReviews: false,
   sizes: [
     { label: 'P', available: true },
     { label: 'M', available: true },
@@ -471,7 +476,7 @@ const PRODUCT = {
   description: 'Camiseta Casual Corinthians oferecida como cortesia promocional, sujeita à disponibilidade de estoque e tamanhos. O valor do envio e da logística será informado antes da confirmação. Esta demonstração não processa pagamentos nem cria cobranças recorrentes. Esta oferta não afirma vínculo oficial com o Corinthians.',
   sizeGuide: 'Insira aqui as medidas e orientações para ajudar sua cliente a escolher o tamanho ideal.',
   returnsPolicy: 'Consulte a política de trocas e devoluções da loja. A oferta está sujeita à disponibilidade de estoque e tamanhos. A página é uma demonstração e não processa pagamentos.',
-  shippingMessage: 'A camiseta é grátis. O valor do envio e da logística será informado antes da confirmação. Esta demonstração não calcula o frete nem processa pagamentos.'
+  shippingMessage: 'Frete e logística informados antes da confirmação.'
 };
 
 const money = value => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value || 0);
@@ -491,9 +496,19 @@ function renderPageData() {
   $('#footer-tagline').textContent = STORE.tagline;
   $$('[data-brand-inline]').forEach(el => { el.textContent = STORE.name; });
   $('#product-brand').textContent = PRODUCT.brand;
+  $('#product-brand').hidden = !PRODUCT.brand.trim();
   $('#product-title').textContent = PRODUCT.name;
   $('#product-sku').textContent = PRODUCT.sku;
+  $('.product-code').hidden = !PRODUCT.sku.trim();
   $('#product-stock').textContent = PRODUCT.availability;
+  $('.stock-status').hidden = !PRODUCT.availability.trim();
+  $('.color-picker').hidden = PRODUCT.showColorSelector === false;
+  $('.quantity-control').hidden = PRODUCT.showQuantitySelector === false;
+  $('.shipping-box').hidden = PRODUCT.showShippingEstimator === false;
+  $('.reviews-section').hidden = PRODUCT.showReviews === false;
+  $('.product-rating-link').hidden = PRODUCT.showReviews === false;
+  $('.newsletter').hidden = STORE.showNewsletter === false;
+  $('.secure-note').textContent = 'Prévia: pedido, frete e pagamento não são processados.';
   $('#crumb-category').textContent = PRODUCT.category;
   $('#crumb-subcategory').textContent = PRODUCT.subcategory;
   $('#crumb-product').textContent = PRODUCT.name;
@@ -506,6 +521,7 @@ function renderPageData() {
     item.textContent = text;
     return item;
   }));
+  $('#product-highlights').hidden = PRODUCT.highlights.filter(Boolean).length === 0;
   $('#shipping-feedback').textContent = PRODUCT.shippingMessage;
   $('#footer-about').textContent = STORE.about;
   $('#contact-email').textContent = STORE.email;
@@ -537,19 +553,23 @@ function renderPageData() {
   }));
 
   $('#product-price').textContent = money(PRODUCT.price);
-  $('#installments').textContent = 'Envio e logística: definidos antes da confirmação';
+  $('#installments').textContent = PRODUCT.shippingMessage;
   const pixPrice = PRODUCT.price * (1 - PRODUCT.pixDiscountPercent / 100);
   $('#pix-price').textContent = money(pixPrice);
-  $('#pix-price').hidden = PRODUCT.price === 0;
-  $('#pix-discount').textContent = PRODUCT.price === 0 ? 'CAMISETA GRÁTIS' : (PRODUCT.pixDiscountPercent ? `(${PRODUCT.pixDiscountPercent}% de desconto no PIX)` : '');
-  $('#pix-discount').hidden = PRODUCT.price !== 0 && !PRODUCT.pixDiscountPercent;
+  const showPixLine = PRODUCT.price > 0 && PRODUCT.pixDiscountPercent > 0;
+  $('.pix-price').hidden = !showPixLine;
+  $('#pix-price').hidden = !showPixLine;
+  $('#pix-discount').textContent = showPixLine ? `(${PRODUCT.pixDiscountPercent}% de desconto no PIX)` : '';
+  $('#pix-discount').hidden = !showPixLine;
   if (PRODUCT.compareAtPrice > PRODUCT.price) {
     $('#old-price').hidden = false;
     $('#old-price').textContent = `De ${money(PRODUCT.compareAtPrice)}`;
     $('#discount-tag').hidden = false;
-    $('#discount-tag').textContent = `${Math.round((1 - PRODUCT.price / PRODUCT.compareAtPrice) * 100)}% OFF`;
+    $('#discount-tag').textContent = PRODUCT.price === 0 ? 'GRÁTIS' : `${Math.round((1 - PRODUCT.price / PRODUCT.compareAtPrice) * 100)}% OFF`;
+  } else {
+    $('#old-price').hidden = true;
+    $('#discount-tag').hidden = true;
   }
-  $('#add-to-cart').textContent = 'Quero minha camiseta grátis';
   $('#selected-color').textContent = PRODUCT.colorName;
   $('#color-options').replaceChildren();
   if (PRODUCT.colorHex) {
@@ -628,6 +648,11 @@ function renderGallery() {
   $('#product-gallery').replaceChildren(main, thumbnails);
   showImage(selectedImage);
 }
+function updateAddToCartLabel() {
+  $('#add-to-cart').textContent = selectedSize
+    ? (PRODUCT.price === 0 ? 'Quero minha camiseta grátis' : 'Adicionar ao carrinho')
+    : 'Escolha um tamanho';
+}
 function renderSizes() {
   $('#size-options').replaceChildren(...PRODUCT.sizes.map(({ label, available }) => {
     const button = document.createElement('button');
@@ -639,6 +664,7 @@ function renderSizes() {
     button.setAttribute('aria-label', available ? `Tamanho ${label}` : `Tamanho ${label}, indisponível`);
     button.addEventListener('click', () => {
       selectedSize = label;
+      updateAddToCartLabel();
       $$('.size-option').forEach(option => option.setAttribute('aria-pressed', String(option === button)));
       $('#size-hint').textContent = `Tamanho ${label} selecionado`;
       $('#size-hint').style.color = 'var(--success)';
@@ -646,6 +672,7 @@ function renderSizes() {
     });
     return button;
   }));
+  updateAddToCartLabel();
 }
 function showToast(message) {
   const toast = $('#toast');
@@ -675,7 +702,8 @@ $('#add-to-cart').addEventListener('click', () => {
   cartItems += quantity;
   $('#cart-count').textContent = cartItems;
   $('#cart-button').setAttribute('aria-label', `Carrinho, ${cartItems} ${cartItems === 1 ? 'item' : 'itens'}`);
-  const message = `${PRODUCT.name} · tamanho ${selectedSize} · quantidade ${quantity} adicionada ao carrinho. Camiseta grátis; envio e logística informados antes da confirmação.`;
+  const quantityLabel = PRODUCT.showQuantitySelector ? ` · quantidade ${quantity}` : '';
+  const message = `${PRODUCT.name} · tamanho ${selectedSize}${quantityLabel} adicionada ao carrinho. Camiseta grátis; frete e logística informados antes da confirmação.`;
   $('#cart-feedback').textContent = message;
   showToast('Camiseta grátis adicionada ao carrinho');
 });
