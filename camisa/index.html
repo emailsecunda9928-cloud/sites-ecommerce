@@ -633,24 +633,31 @@
       .pix-price span { color: var(--accent-dark); font-weight: 700; }
       .product-highlights { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
       .product-highlight { display: inline-flex; align-items: center; min-height: 27px; padding: 4px 9px; border: 1px solid #d9e8df; border-radius: 999px; background: #f7fbf8; color: #375b46; font-size: 11px; font-weight: 600; }
-      .color-picker, .size-picker { margin-top: 20px; }
-      .size-picker { padding-top: 17px; border-top: 1px solid var(--line); }
-      .field-heading { margin-bottom: 11px; color: #33404b; font-size: 13px; font-weight: 600; }
-      .field-heading > span { color: #52606c; }
-      .field-heading strong { color: #1d2732; font-size: 12px; font-weight: 700; }
-      .field-heading a { color: var(--accent-dark); font-size: 11px; font-weight: 600; }
-      .color-options { gap: 11px; }
-      .color-swatch { width: 31px; height: 31px; border-color: #c5cdd4; }
-      .color-swatch[aria-pressed='true'] { outline: 2px solid var(--accent); outline-offset: 2px; }
-      .size-options { gap: 9px; }
-      .size-option { min-width: 59px; height: 48px; border: 1px solid #cbd3da; border-radius: 5px; background: #fff; color: #24303b; font-size: 14px; font-weight: 700; transition: border-color .16s ease, background .16s ease, color .16s ease, transform .16s ease; }
-      .size-option:hover:not(:disabled) { transform: translateY(-1px); border-color: var(--accent); background: #f4faf6; }
-      .size-option[aria-pressed='true'] { border-color: #1d2732; background: #1d2732; color: #fff; }
-      .size-option:disabled { border-color: #e1e5e8; background: #f3f5f6; color: #8b949d; opacity: 1; }
-      .selection-hint { min-height: 18px; margin: 7px 0 0; color: #77828d; font-size: 11px; }
-      .add-to-cart--inline, .product-buy .add-to-cart { width: 100%; height: 56px; border: 1px solid #1d2732; border-radius: 5px; background: #1d2732; color: #fff; font-size: 14px; font-weight: 800; letter-spacing: .025em; text-transform: uppercase; box-shadow: 0 2px 0 rgba(29,39,50,.1); transition: background .16s ease, border-color .16s ease, transform .16s ease, box-shadow .16s ease; }
+      .color-picker, .size-picker { margin-top: 19px; }
+      .size-picker { padding-top: 17px; border-top: 1px solid #e4e8eb; }
+      .field-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; color: #34414c; font-size: 13px; font-weight: 700; }
+      .field-heading > span { color: #2b3640; }
+      .field-heading strong { display: inline-flex; min-height: 25px; align-items: center; padding: 3px 9px; border: 1px solid #e1e6e9; border-radius: 999px; background: #f6f8f9; color: #46535e; font-size: 11px; font-weight: 600; }
+      .field-heading a { display: inline-flex; min-height: 28px; align-items: center; color: var(--accent-dark); font-size: 11px; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+      .color-options { display: flex; flex-wrap: wrap; gap: 12px; }
+      .color-swatch { position: relative; display: grid; width: 38px; height: 38px; place-items: center; padding: 4px; border: 1px solid #e0e5e8; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(20,35,48,.08); cursor: pointer; transition: border-color .16s ease, box-shadow .16s ease, transform .16s ease; }
+      .color-swatch::after { border-radius: 50%; }
+      .color-swatch:hover { transform: translateY(-1px); border-color: #9ba8b1; }
+      .color-swatch[aria-pressed='true'] { outline: 2px solid var(--accent); outline-offset: 2px; border-color: #fff; box-shadow: 0 0 0 1px rgba(20,35,48,.12); }
+      .color-swatch[aria-pressed='true']::before { position: absolute; right: -4px; bottom: -4px; display: grid; width: 15px; height: 15px; place-items: center; border: 1px solid #fff; border-radius: 50%; background: var(--accent-dark); color: #fff; content: '✓'; font-size: 9px; font-weight: 800; line-height: 1; box-shadow: 0 0 0 1px rgba(20,35,48,.12); }
+      .size-options { display: flex; flex-wrap: wrap; gap: 9px; }
+      .size-option { position: relative; display: inline-grid; min-width: 60px; height: 48px; place-items: center; padding: 0 12px; border: 1px solid #d2d8dd; border-radius: 7px; background: #fff; color: #2d3741; font-size: 13px; font-weight: 700; box-shadow: 0 1px 2px rgba(18,33,46,.04); cursor: pointer; transition: border-color .16s ease, background .16s ease, color .16s ease, box-shadow .16s ease, transform .16s ease; }
+      .size-option:hover:not(:disabled):not([aria-pressed='true']) { transform: translateY(-1px); border-color: #8b989f; background: #f7f9f8; box-shadow: 0 3px 8px rgba(20,35,48,.08); }
+      .size-option[aria-pressed='true'] { border-color: var(--accent-dark); background: #eaf4ee; color: var(--accent-dark); box-shadow: inset 0 0 0 1px var(--accent-dark); }
+      .size-option:disabled { border-color: #e3e7ea; background: #f6f7f8; color: #a3abb3; cursor: not-allowed; opacity: 1; box-shadow: none; }
+      .size-option:disabled::after { position: absolute; top: 50%; right: 8px; left: 8px; height: 1px; background: #bfc6cc; content: ''; transform: rotate(-24deg); }
+      .size-option:focus-visible, .color-swatch:focus-visible, .add-to-cart--inline:focus-visible, .product-buy .add-to-cart:focus-visible { outline: 3px solid rgba(7,139,77,.38); outline-offset: 3px; }
+      .selection-hint { min-height: 18px; margin: 7px 0 0; color: #6e7983; font-size: 11px; }
+      .add-to-cart--inline, .product-buy .add-to-cart { position: relative; display: flex; width: 100%; height: 56px; align-items: center; justify-content: center; padding: 0 48px 0 22px; border: 1px solid #1e342c; border-radius: 8px; background: #1e342c; color: #fff; font-size: 14px; font-weight: 800; letter-spacing: .02em; text-transform: uppercase; box-shadow: 0 3px 9px rgba(16,46,31,.14); transition: background .16s ease, border-color .16s ease, transform .16s ease, box-shadow .16s ease; }
+      .add-to-cart--inline::after, .product-buy .add-to-cart::after { position: absolute; right: 16px; display: grid; width: 23px; height: 23px; place-items: center; border: 1px solid rgba(255,255,255,.35); border-radius: 50%; color: #fff; content: '→'; font-size: 14px; font-weight: 500; line-height: 1; }
       .add-to-cart--inline { margin: 16px 0 12px; }
-      .add-to-cart--inline:hover, .product-buy .add-to-cart:hover { transform: translateY(-1px); border-color: var(--accent-dark); background: var(--accent-dark); box-shadow: 0 5px 12px rgba(7,93,53,.17); }
+      .add-to-cart--inline:hover, .product-buy .add-to-cart:hover { transform: translateY(-1px); border-color: var(--accent-dark); background: var(--accent-dark); box-shadow: 0 5px 12px rgba(7,93,53,.2); }
+      .add-to-cart--inline:active, .product-buy .add-to-cart:active { transform: translateY(0); box-shadow: 0 1px 3px rgba(16,46,31,.18); }
       .cart-feedback { min-height: 16px; margin: 0 0 8px; color: var(--success); font-size: 11px; font-weight: 600; }
       .preview-note { display: flex; align-items: flex-start; gap: 8px; margin: 7px 0 15px; padding: 9px 11px; border: 1px solid #e5e9ec; border-radius: 5px; background: #f7f8f9; color: #596775; font-size: 10px; line-height: 1.5; }
       .preview-note svg { width: 15px; height: 15px; flex: 0 0 15px; margin-top: 1px; }
@@ -686,6 +693,16 @@
       .footer-bottom { border-color: #d6dde2; color: #65717c; font-size: 10px; }
       .outline-button { border-color: #aeb8c0; border-radius: 5px; font-weight: 700; }
       .toast { bottom: 22px; border-radius: 6px; background: #1d2732; font-size: 12px; }
+
+      /* Confiança pela clareza das condições, sem selos ou promessas não verificadas. */
+      .old-price { color: #687482; font-size: 11px; font-weight: 500; text-decoration: none; }
+      .offer-conditions { margin: 15px 0 16px; padding: 13px 14px; border: 1px solid #dce7e1; border-radius: 7px; background: linear-gradient(135deg, #f7fbf8 0%, #f7f9fa 100%); }
+      .offer-conditions__heading { display: flex; align-items: center; gap: 8px; margin: 0 0 7px; color: #26333e; font-size: 12px; font-weight: 800; }
+      .offer-conditions__heading svg { width: 17px; height: 17px; flex: 0 0 17px; fill: none; stroke: var(--accent-dark); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+      .offer-conditions__list { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+      .offer-condition { display: grid; grid-template-columns: 19px minmax(0,1fr); align-items: start; gap: 8px; padding: 8px 0; border-top: 1px solid #e5ece8; color: #495762; font-size: 11px; line-height: 1.45; }
+      .offer-condition__icon { display: grid; width: 18px; height: 18px; place-items: center; border-radius: 50%; background: #e5f2e9; color: var(--accent-dark); font-size: 11px; font-weight: 800; }
+      .offer-condition strong { color: #25323d; font-weight: 700; }
 
       @media (min-width: 1100px) {
         .product-panel { position: sticky; top: 140px; }
@@ -740,17 +757,22 @@
         .product-panel h1 { font-size: 22px; }
         .price-block { margin-top: 14px; padding: 14px; }
         .price-line > strong { font-size: 33px; }
+        .offer-conditions { margin: 12px 0 14px; padding: 12px; }
+        .offer-condition { font-size: 11px; }
         .color-picker, .size-picker { margin-top: 17px; }
         .size-picker { padding-top: 15px; }
+        .color-options { gap: 14px; }
+        .color-swatch { width: 38px; height: 38px; }
         .size-option { min-width: 56px; height: 48px; }
-        .add-to-cart--inline { height: 54px; margin-top: 14px; font-size: 13px; }
+        .add-to-cart--inline { height: 54px; margin-top: 14px; padding-inline: 17px 43px; font-size: 12px; }
         .preview-note { margin-bottom: 12px; }
         .shipping-box { margin-top: 13px; padding: 14px; }
         .shipping-form { height: 44px; }
         .shipping-form button { padding-inline: 9px; font-size: 9px; }
         .product-details summary { padding-top: 14px; padding-bottom: 14px; }
         .product-buy { position: fixed; z-index: 60; right: 0; bottom: 0; left: 0; display: flex; min-height: 72px; align-items: center; gap: 10px; padding: 9px 14px calc(9px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); background: #fff; box-shadow: 0 -7px 22px rgba(23,35,46,.14); }
-        .product-buy .add-to-cart { height: 52px; min-height: 52px; font-size: 13px; }
+        .product-buy .add-to-cart { width: auto; min-width: 0; height: 54px; min-height: 54px; flex: 1 1 auto; padding-inline: 14px 40px; font-size: 12px; }
+        .product-buy .add-to-cart::after { right: 12px; width: 21px; height: 21px; }
         .reviews-section { margin-top: 22px; padding: 25px 0 28px; }
         .section-heading { align-items: center; gap: 10px; }
         .section-heading h2, .newsletter h2 { font-size: 21px; }
@@ -796,7 +818,7 @@
       <div class="header-actions">
         <button class="icon-button search-toggle" type="button" aria-label="Buscar" title="Buscar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></button>
         <a class="icon-button account-link" href="#atendimento" aria-label="Atendimento da loja" title="Atendimento da loja"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.4"></circle><path d="M5 21c.5-4 3-6 7-6s6.5 2 7 6"></path></svg><span class="header-action-label">Atendimento</span></a>
-        <button class="cart-button" id="cart-button" type="button" aria-label="Carrinho, 0 itens">
+        <button class="cart-button" id="cart-button" type="button" aria-label="Carrinho demonstrativo, 0 itens">
           <span class="cart-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 11.2h11.6L21 8H6"></path><circle cx="9" cy="20" r="1"></circle><circle cx="18" cy="20" r="1"></circle></svg><span class="cart-count" id="cart-count">0</span></span>
           <span class="cart-label">Carrinho</span>
         </button>
@@ -832,6 +854,10 @@
             <p class="pix-price"><strong id="pix-price">R$ 0,00</strong> <span id="pix-discount"></span></p>
           </div>
           <div class="product-highlights" id="product-highlights" aria-label="Destaques do produto"></div>
+          <section class="offer-conditions" aria-labelledby="offer-conditions-title">
+            <h2 class="offer-conditions__heading" id="offer-conditions-title"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.4"></circle><path d="M10 9v4M10 6.4h.01"></path></svg>Condições claras da oferta</h2>
+            <ul class="offer-conditions__list" id="offer-conditions-list"></ul>
+          </section>
 
           <div class="color-picker">
             <div class="field-heading"><span>Cor</span><strong id="selected-color">CADASTRE A COR</strong></div>
@@ -855,7 +881,7 @@
             <button class="add-to-cart" id="add-to-cart" type="button">Adicionar ao carrinho</button>
           </div>
           <p class="cart-feedback" id="cart-feedback" aria-live="polite"></p>
-          <p class="preview-note"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7"></circle><path d="M10 9v5M10 6.5h.01"></path></svg>Prévia demonstrativa: pedidos e pagamentos não são processados.</p>
+          <p class="preview-note"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7"></circle><path d="M10 9v5M10 6.5h.01"></path></svg>Prévia demonstrativa: o carrinho é local; pedidos e pagamentos não são processados.</p>
 
           <section class="shipping-box" aria-labelledby="shipping-title">
             <h2 id="shipping-title">Frete e entrega</h2>
@@ -960,7 +986,11 @@ const PRODUCT = {
   installments: 1,
   colorName: 'Preto',
   colorHex: '#111111',
-  highlights: ['Sem cobrança recorrente'],
+  highlights: [],
+  offerConditions: [
+    'Sem cobrança recorrente.',
+    'Frete e logística serão informados antes da confirmação.'
+  ],
   showColorSelector: true,
   showQuantitySelector: false,
   showShippingEstimator: true,
@@ -1110,6 +1140,8 @@ function renderPageData() {
   $('#brand-name').textContent = storeName;
   const brandInitial = Array.from(storeName)[0] || 'M';
   $$('[data-brand-mark]').forEach(el => { el.textContent = brandInitial.toLocaleUpperCase('pt-BR'); });
+  document.title = `${PRODUCT.name} | ${storeName}`;
+  document.querySelector('meta[name="description"]').setAttribute('content', `${PRODUCT.name} — preço, tamanhos e condições da oferta em ${storeName}.`);
   setOptionalText('#brand-tagline', STORE.tagline);
   setOptionalText('#footer-tagline', STORE.tagline);
   $$('[data-brand-inline]').forEach(el => { el.textContent = storeName; });
@@ -1130,7 +1162,7 @@ function renderPageData() {
   $('.reviews-section').hidden = PRODUCT.showReviews === false;
   $('.product-rating-link').hidden = PRODUCT.showReviews === false;
   $('.newsletter').hidden = STORE.showNewsletter === false;
-  $('.preview-note').lastChild.textContent = 'Prévia demonstrativa: pedidos e pagamentos não são processados.';
+  $('.preview-note').lastChild.textContent = 'Prévia demonstrativa: o carrinho é local; pedidos e pagamentos não são processados.';
   $('#size-hint').textContent = '';
   $('#crumb-category').textContent = PRODUCT.category;
   $('#crumb-subcategory').textContent = PRODUCT.subcategory;
@@ -1154,6 +1186,23 @@ function renderPageData() {
     return item;
   }));
   $('#product-highlights').hidden = PRODUCT.highlights.filter(Boolean).length === 0;
+  const offerConditions = [
+    `Preço da camiseta nesta oferta: ${money(PRODUCT.price)}.`,
+    ...(PRODUCT.offerConditions || [])
+  ].filter(text => String(text || '').trim());
+  $('#offer-conditions-list').replaceChildren(...offerConditions.map(text => {
+    const item = document.createElement('li');
+    item.className = 'offer-condition';
+    const marker = document.createElement('span');
+    marker.className = 'offer-condition__icon';
+    marker.setAttribute('aria-hidden', 'true');
+    marker.textContent = '✓';
+    const copy = document.createElement('span');
+    copy.textContent = text;
+    item.append(marker, copy);
+    return item;
+  }));
+  $('.offer-conditions').hidden = offerConditions.length === 0;
   $('#shipping-feedback').textContent = PRODUCT.shippingMessage;
   setOptionalText('#footer-about', STORE.about);
   const hasContact = [
@@ -1209,7 +1258,7 @@ function renderPageData() {
   $('#pix-discount').hidden = !showPixLine;
   if (PRODUCT.compareAtPrice > PRODUCT.price) {
     $('#old-price').hidden = false;
-    $('#old-price').textContent = `De ${money(PRODUCT.compareAtPrice)}`;
+    $('#old-price').textContent = `Preço de referência: ${money(PRODUCT.compareAtPrice)}`;
     $('#discount-tag').hidden = false;
     $('#discount-tag').textContent = PRODUCT.price === 0 ? 'GRÁTIS' : `${Math.round((1 - PRODUCT.price / PRODUCT.compareAtPrice) * 100)}% OFF`;
   } else {
@@ -1310,7 +1359,7 @@ function renderGallery() {
 }
 function updateAddToCartLabel() {
   const label = selectedSize
-    ? (PRODUCT.price === 0 ? 'Quero minha camiseta grátis' : 'Adicionar ao carrinho')
+    ? (PRODUCT.price === 0 ? 'Adicionar camiseta grátis' : 'Adicionar ao carrinho')
     : (PRODUCT.price === 0 ? 'Escolha seu tamanho grátis' : 'Escolha um tamanho');
   $('#add-to-cart').textContent = label;
   $('#add-to-cart-inline').textContent = label;
@@ -1364,11 +1413,11 @@ function handleAddToCart() {
   }
   cartItems += quantity;
   $('#cart-count').textContent = cartItems;
-  $('#cart-button').setAttribute('aria-label', `Carrinho, ${cartItems} ${cartItems === 1 ? 'item' : 'itens'}`);
+  $('#cart-button').setAttribute('aria-label', `Carrinho demonstrativo, ${cartItems} ${cartItems === 1 ? 'item' : 'itens'}`);
   const quantityLabel = PRODUCT.showQuantitySelector ? ` · quantidade ${quantity}` : '';
-  const message = `${PRODUCT.name} · tamanho ${selectedSize}${quantityLabel} adicionada ao carrinho. Camiseta grátis; frete e logística informados antes da confirmação.`;
+  const message = `${PRODUCT.name} · tamanho ${selectedSize}${quantityLabel} adicionado ao carrinho demonstrativo.`;
   $('#cart-feedback').textContent = message;
-  showToast('Camiseta grátis adicionada ao carrinho');
+  showToast('Adicionado ao carrinho demonstrativo.');
 }
 $$('.add-to-cart').forEach(button => button.addEventListener('click', handleAddToCart));
 
@@ -1439,7 +1488,7 @@ $('#search-panel').addEventListener('submit', event => {
     showToast('Nenhum produto correspondente no catálogo desta página.');
   }
 });
-$('#cart-button').addEventListener('click', () => showToast(cartItems ? `${cartItems} ${cartItems === 1 ? 'item' : 'itens'} no carrinho.` : 'Seu carrinho está vazio.'));
+$('#cart-button').addEventListener('click', () => showToast(cartItems ? `${cartItems} ${cartItems === 1 ? 'item' : 'itens'} no carrinho demonstrativo.` : 'O carrinho demonstrativo está vazio.'));
 $('#size-guide-link').addEventListener('click', () => { $('#guia-tamanhos').open = true; });
 
 const ratingInput = $('#rating-input');
