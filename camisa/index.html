@@ -12,44 +12,41 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Camiseta Casual Corinthians","description":"Camiseta preta casual com brasão do Corinthians.","image":"images/shirt-2.webp","brand":{"@type":"Brand","name":"Kokeshi"},"offers":{"@type":"Offer","price":"0.00","priceCurrency":"BRL"}}</script>
 <title>Camiseta Casual Corinthians | Kokeshi</title>
 <style>
-:root{--accent:#24262b;--accent-dark:#111317;--accent-soft:#f2f3f4;--accent-line:#dfe1e4;--free:#176b45;--free-soft:#eaf4ee;--urgent:#a94232;--urgent-soft:#fff4f0;--urgent-line:#efd8d1;--ink:#211f23;--muted:#6d6870;--line:#e8e4e6;--line-strong:#c9c3c7;--surface:#f6f6f4;--danger:#b3261e}
+:root{--accent:#2b4e68;--accent-dark:#203c52;--accent-soft:#eef3f6;--accent-line:#dbe5ec;--free:#176b45;--free-soft:#eaf4ee;--ink:#252a30;--muted:#6d6870;--line:#e8e4e6;--line-strong:#c9c3c7;--surface:#f7f6f5;--danger:#b3261e}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;color:var(--ink);background:var(--surface);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+body{margin:0;color:var(--ink);background:#fff;font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 button{font:inherit}
 h1,h2,p{margin-top:0}
 .wrap{width:min(1080px,calc(100% - 32px));margin-inline:auto}
-.topbar{background:var(--ink);color:#fff;text-align:center;font-size:13px;padding:8px 12px}
-.header{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:10;box-shadow:0 2px 10px rgba(25,25,30,.035)}
+.topbar{background:var(--accent-dark);color:#fff;text-align:center;font-size:13px;padding:8px 12px}
+.header{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:10}
 .header .wrap{height:60px;display:flex;align-items:center;justify-content:space-between}
 .logo{color:var(--accent);font-size:24px;font-weight:850;letter-spacing:-.06em}
 .logo i{font-style:normal;color:#969ba3}
 .cart-btn{display:flex;align-items:center;gap:8px;padding:8px 4px;border:0;background:none;color:var(--ink);font-weight:600;cursor:pointer}
 .cart-btn b{display:grid;place-items:center;min-width:20px;height:20px;padding:0 5px;border-radius:99px;background:var(--accent);color:#fff;font-size:12px}
 .crumbs{padding:18px 0 14px;color:var(--muted);font-size:13px}
-.product{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(20px,3.5vw,44px);padding-bottom:48px;align-items:start}
+.product{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);padding-bottom:48px;align-items:start}
 .gallery{display:grid;grid-template-columns:72px 1fr;gap:12px}
 .thumbs{display:flex;flex-direction:column;gap:10px}
-.thumb{width:72px;height:72px;padding:3px;border:1px solid var(--line);border-radius:9px;background:#fff;cursor:pointer;overflow:hidden;transition:border-color .15s,transform .15s}
+.thumb{width:72px;height:72px;padding:3px;border:1px solid var(--line);border-radius:6px;background:var(--surface);cursor:pointer;overflow:hidden}
 .thumb img{width:100%;height:100%;object-fit:contain}
-.thumb[aria-pressed="true"]{border:2px solid var(--accent)}
-.thumb:hover{transform:translateY(-1px);border-color:var(--accent)}
-.stage{position:relative;aspect-ratio:1/1;display:grid;place-items:center;background:linear-gradient(145deg,#f1f2ef,#e9ebe8);border:1px solid rgba(33,31,35,.04);border-radius:14px;overflow:hidden}
+.thumb[aria-pressed="true"]{border:2px solid var(--ink)}
+.stage{position:relative;aspect-ratio:1/1;display:grid;place-items:center;background:var(--surface);border-radius:8px;overflow:hidden}
 .stage img{width:100%;height:100%;object-fit:contain;padding:10px}
 .tag{position:absolute;top:12px;left:12px;padding:5px 11px;border-radius:4px;background:var(--free);color:#fff;font-size:13px;font-weight:800}
-.product-info{padding:clamp(18px,2.3vw,26px);border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:0 10px 30px rgba(25,25,30,.055)}
-h1{margin-bottom:6px;font-size:clamp(25px,3vw,31px);line-height:1.18;letter-spacing:-.03em}
+h1{margin-bottom:4px;font-size:clamp(24px,3vw,30px);line-height:1.2;letter-spacing:-.025em}
 .sub{margin-bottom:18px;color:var(--muted)}
 .old{margin:0;color:var(--muted);font-size:14px}
 .old s{margin-right:4px}
-.price-panel{margin:20px 0 16px;padding:16px 18px;border:1px solid var(--line);border-radius:12px;background:linear-gradient(135deg,#fff,#f8f9f7)}
 .price-row{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin:2px 0 4px}
-.price{color:var(--free);font-size:40px;font-weight:850;letter-spacing:-.04em;line-height:1.1}
+.price{font-size:38px;font-weight:800;letter-spacing:-.03em;line-height:1.1}
 .pill{padding:4px 10px;border-radius:99px;background:var(--free-soft);color:var(--free);font-size:13px;font-weight:800}
-.offer-deadline{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin:12px 0 0;padding:10px 11px;border:1px solid var(--urgent-line);border-radius:8px;background:var(--urgent-soft);color:var(--ink);font-size:13px}
-.offer-deadline strong{padding:4px 8px;border-radius:5px;background:var(--urgent);color:#fff;font-size:10px;font-weight:850;letter-spacing:.045em}
+.offer-deadline{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:12px 0;padding:9px 11px;border:1px solid var(--accent-line);border-radius:7px;background:var(--accent-soft);color:var(--ink);font-size:13px}
+.offer-deadline strong{padding:3px 7px;border-radius:4px;background:var(--accent);color:#fff;font-size:10px;font-weight:850;letter-spacing:.04em}
 .ship{margin:0 0 8px;padding-bottom:16px;border-bottom:1px solid var(--line);color:var(--muted);font-size:14px}
 .ship b{color:var(--ink);font-weight:600}
 .size-guide{margin:0 0 12px;border:0}
@@ -60,16 +57,16 @@ fieldset{margin:0 0 18px;padding:0;border:0;min-width:0}
 legend{padding:0;margin-bottom:10px;font-size:14px;font-weight:700}
 legend span{color:var(--muted);font-weight:400}
 .sizes{display:flex;gap:10px}
-.size{width:60px;height:46px;border:1px solid var(--line-strong);border-radius:6px;background:#fff;color:var(--ink);font-size:15px;font-weight:650;cursor:pointer}
-.size:hover{border-color:var(--ink)}
-.size[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:#fff}
+.size{width:60px;height:46px;border:1px solid #cfc9cc;border-radius:6px;background:#fff;color:var(--ink);font-size:15px;font-weight:650;cursor:pointer}
+.size:hover{border-color:var(--accent)}
+.size[aria-pressed="true"]{border-color:var(--accent);background:var(--accent);color:#fff}
 .hint{min-height:20px;margin:8px 0 0;color:var(--muted);font-size:13px}
-.cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:56px;padding:14px;border:0;border-radius:10px;background:var(--accent);color:#fff;font-size:16px;font-weight:750;cursor:pointer;box-shadow:0 7px 18px rgba(36,38,43,.20);transition:background .15s,transform .15s,box-shadow .15s}
+.cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:56px;padding:14px;border:0;border-radius:8px;background:var(--accent);color:#fff;font-size:16px;font-weight:750;cursor:pointer;box-shadow:0 6px 16px rgba(43,78,104,.20);transition:background .15s,transform .15s}
 .cta:active{transform:scale(.99)}
 .cta svg{width:20px;height:20px;flex:none}
 .assure{margin:10px 0 0;text-align:center;color:var(--muted);font-size:13px}
-.cta:hover{background:var(--accent-dark);box-shadow:0 9px 22px rgba(36,38,43,.25)}
-:focus-visible{outline:3px solid #969ba3;outline-offset:2px}
+.cta:hover{background:var(--accent-dark)}
+:focus-visible{outline:3px solid #9ab5c7;outline-offset:2px}
 .perks{display:grid;grid-template-columns:repeat(3,1fr);margin:18px 0 0;padding:14px 0;border-block:1px solid var(--line);font-size:13px;text-align:center;color:#3a363d}
 .perks div+div{border-left:1px solid var(--line)}
 .perks strong{display:block;font-size:13px}
@@ -81,7 +78,7 @@ summary::-webkit-details-marker{display:none}
 summary::after{content:"+";font-size:20px;line-height:1;color:var(--muted)}
 details[open] summary::after{content:"−"}
 details p{margin:0;padding:0 0 15px;color:var(--muted);font-size:14px}
-.footer{padding:24px 0;border-top:1px solid var(--line);background:#eeefec;color:var(--muted);font-size:12px}
+.footer{padding:22px 0;border-top:1px solid var(--line);background:#faf9f9;color:var(--muted);font-size:12px}
 .f-top{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:14px}
 .f-cols{display:flex;gap:44px;flex-wrap:wrap}
 .f-cols h3{margin:0 0 6px;font-size:13px;color:var(--ink)}
@@ -150,11 +147,9 @@ body{padding-bottom:70px}
       <h1>Camiseta Casual Corinthians</h1>
       <p class="sub">Camiseta preta casual com brasão do Corinthians.</p>
 
-      <div class="price-panel">
-        <p class="old">De <s>R$ 79,90</s> por</p>
-        <div class="price-row"><span class="price">R$ 0,00</span><span class="pill">100% grátis</span></div>
-        <p class="offer-deadline"><strong>ÚLTIMO DIA</strong><span>Oferta grátis termina hoje (18/10/2026)</span></p>
-      </div>
+      <p class="old">De <s>R$ 79,90</s> por</p>
+      <div class="price-row"><span class="price">R$ 0,00</span><span class="pill">100% grátis</span></div>
+      <p class="offer-deadline"><strong>ÚLTIMO DIA</strong><span>Oferta grátis termina hoje (18/10/2026)</span></p>
       <p class="ship"><b>Frete/logística:</b> se houver, o valor aparece antes de você confirmar.</p>
 
       <details class="size-guide">
