@@ -83,7 +83,9 @@
     .price-reference { display: grid; gap: 2px; padding-left: 15px; border-left: 1px solid #d7e5db; }
     .price-reference strong { color: var(--ink-soft); font-size: 14px; line-height: 1.2; }
     .price-reference small { color: var(--muted); font-size: 10px; }
-    .price-footnote { margin: 10px 0 0; color: var(--muted); font-size: 11px; }
+    .offer-timing { min-height: 1.5em; margin: 9px 0 0; color: var(--ink-soft); font-size: 12px; font-weight: 650; letter-spacing: .005em; }
+    .offer-timing-text { display: inline-block; transition: opacity .22s ease, transform .22s ease; }
+    .offer-timing-text.is-changing { opacity: 0; transform: translateY(-3px); }
     .offer-card { display: flex; gap: 12px; margin: 14px 0 20px; padding: 13px 15px; border: 1px solid #dbe7dd; border-radius: 12px; background: #f7faf7; }
     .offer-icon { width: 20px; height: 20px; flex: none; color: var(--brand); }
     .offer-copy strong { display: block; margin-bottom: 2px; font-size: 12px; }
@@ -259,7 +261,7 @@
         <div class="price-block" aria-label="Preço do produto">
           <span class="price-kicker">Oferta do produto</span>
           <div class="price-row"><span class="price">Grátis</span><span class="price-reference"><strong>R$ 0,00</strong><small>preço da camiseta</small></span></div>
-          <p class="price-footnote">Frete ou logística, se houver, será informado antes da confirmação.</p>
+          <p class="offer-timing" aria-live="off"><span class="offer-timing-text" id="offer-timing-text" aria-hidden="true">Para a Fiel · por tempo limitado</span><span class="sr-only">Oferta para a torcida do Corinthians por tempo limitado; termina hoje, 19 de outubro de 2026.</span></p>
         </div>
 
         <div class="offer-card">
@@ -345,6 +347,22 @@
     const $ = (id) => document.getElementById(id);
     let size = '';
     const cart = [];
+
+    const offerTiming = $('offer-timing-text');
+    const offerPhrases = ['Para a Fiel · por tempo limitado', 'Para a Fiel · termina hoje (19/10/2026)'];
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      offerTiming.textContent = 'Para a Fiel · por tempo limitado · termina hoje (19/10/2026)';
+    } else {
+      let offerPhraseIndex = 0;
+      window.setInterval(() => {
+        offerTiming.classList.add('is-changing');
+        window.setTimeout(() => {
+          offerPhraseIndex = (offerPhraseIndex + 1) % offerPhrases.length;
+          offerTiming.textContent = offerPhrases[offerPhraseIndex];
+          offerTiming.classList.remove('is-changing');
+        }, 220);
+      }, 3400);
+    }
 
     $('main-image').src = imgs[0][0];
     document.querySelectorAll('.thumb').forEach((button) => {
