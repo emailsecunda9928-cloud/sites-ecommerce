@@ -74,11 +74,12 @@
     .eyebrow { margin: 0 0 10px; color: var(--brand); font-size: 10px; font-weight: 750; letter-spacing: .15em; text-transform: uppercase; }
     h1 { margin: 0; font-size: clamp(30px, 3vw, 39px); line-height: 1.12; letter-spacing: -.045em; font-weight: 760; }
     .subtitle { max-width: 44ch; margin: 12px 0 14px; color: var(--muted); font-size: 14px; }
-    .review-preview { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin: 0 0 0 auto; }
-    .review-stars { color: #967329; font-family: Arial, sans-serif; font-size: 15px; line-height: 1; letter-spacing: 1px; }
+    .review-rating { display: grid; justify-items: end; gap: 3px; margin-left: auto; }
+    .review-preview { display: flex; flex-wrap: nowrap; align-items: center; gap: 7px; white-space: nowrap; }
+    .review-stars { display: block; width: 82px; height: 16px; flex: none; color: #967329; }
     .review-score { color: var(--ink); font-size: 12px; font-weight: 750; }
     .review-count { color: var(--muted); font-size: 11px; }
-    .review-demo { color: #71664e; font-size: 8px; font-weight: 750; letter-spacing: .07em; }
+    .review-disclaimer { color: var(--muted); font-size: 8px; line-height: 1.2; text-align: right; }
     .price-block { margin: 0; padding: 19px 18px 17px; border: 1px solid #dbe7dd; border-left: 4px solid var(--brand); border-radius: 12px; background: #f7faf7; }
     .price-kicker { display: block; margin-bottom: 7px; color: var(--muted); font-size: 10px; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
     .price-row { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; }
@@ -237,12 +238,14 @@
 
   <main class="wrap" id="inicio">
     <div class="crumbs-row">
-      <nav class="crumbs" aria-label="Navegação estrutural"><a href="#inicio">Início</a><span aria-hidden="true">/</span><a href="#produto">Camisetas</a><span aria-hidden="true">/</span><span aria-current="page">Corinthians</span></nav>
-      <div class="review-preview" role="note" aria-label="Exemplo visual: nota ilustrativa de 4,8 em 5 e 100 avaliações de exemplo; não representa avaliações reais.">
-        <span class="review-stars" aria-hidden="true">★★★★★</span>
-        <strong class="review-score">4,8/5</strong>
-        <span class="review-count">100 avaliações</span>
-        <span class="review-demo">EXEMPLO</span>
+      <nav class="crumbs" aria-label="Navegação estrutural"><a href="#inicio">Início</a><span aria-hidden="true">/</span><a href="#produto" aria-current="page">Camisetas</a></nav>
+      <div class="review-rating">
+        <div class="review-preview" role="note" aria-label="Prévia demonstrativa: nota 4,8 em 5 e 100 avaliações; os dados não são reais.">
+          <svg class="review-stars" viewBox="0 0 90 18" fill="currentColor" aria-hidden="true"><path d="m9 1.2 2.3 4.8 5.4.7-3.9 3.8.9 5.4L9 13.3l-4.7 2.6.9-5.4-3.9-3.8 5.4-.7L9 1.2Z"/><path d="m9 1.2 2.3 4.8 5.4.7-3.9 3.8.9 5.4L9 13.3l-4.7 2.6.9-5.4-3.9-3.8 5.4-.7L9 1.2Z" transform="translate(18 0)"/><path d="m9 1.2 2.3 4.8 5.4.7-3.9 3.8.9 5.4L9 13.3l-4.7 2.6.9-5.4-3.9-3.8 5.4-.7L9 1.2Z" transform="translate(36 0)"/><path d="m9 1.2 2.3 4.8 5.4.7-3.9 3.8.9 5.4L9 13.3l-4.7 2.6.9-5.4-3.9-3.8 5.4-.7L9 1.2Z" transform="translate(54 0)"/><path d="m9 1.2 2.3 4.8 5.4.7-3.9 3.8.9 5.4L9 13.3l-4.7 2.6.9-5.4-3.9-3.8 5.4-.7L9 1.2Z" transform="translate(72 0)"/></svg>
+          <strong class="review-score">4,8/5</strong>
+          <span class="review-count">100 avaliações*</span>
+        </div>
+        <small class="review-disclaimer">* Nota e contagem ilustrativas; substituir pelos dados reais.</small>
       </div>
     </div>
     <section class="product" id="produto" aria-labelledby="product-title">
