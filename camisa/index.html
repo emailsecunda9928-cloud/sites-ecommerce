@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#ffffff">
 <meta name="description" content="Camiseta Casual Corinthians grátis: produto a R$ 0,00. Frete, se houver, informado antes de confirmar.">
+<meta property="og:type" content="product">
+<meta property="og:title" content="Camiseta Casual Corinthians grátis | Kokeshi">
+<meta property="og:description" content="Produto a R$ 0,00. Frete, se houver, informado antes de confirmar.">
+<meta property="og:image" content="images/shirt-2.webp">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Camiseta Casual Corinthians","description":"Camiseta preta casual com brasão do Corinthians.","image":"images/shirt-2.webp","brand":{"@type":"Brand","name":"Kokeshi"},"offers":{"@type":"Offer","price":"0.00","priceCurrency":"BRL"}}</script>
 <title>Camiseta Casual Corinthians | Kokeshi</title>
 <style>
 :root{--accent:#812541;--accent-dark:#651a32;--free:#14793f;--free-soft:#e5f4ec;--ink:#1f1d22;--muted:#6a656d;--line:#e6e2e4;--danger:#b3261e}
@@ -50,7 +55,10 @@ legend span{color:var(--muted);font-weight:400}
 .size:hover{border-color:var(--ink)}
 .size[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:#fff}
 .hint{min-height:20px;margin:8px 0 0;color:var(--muted);font-size:13px}
-.cta{display:block;width:100%;min-height:54px;padding:14px;border:0;border-radius:6px;background:var(--accent);color:#fff;font-size:16px;font-weight:700;cursor:pointer;transition:background .15s}
+.cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:56px;padding:14px;border:0;border-radius:8px;background:var(--accent);color:#fff;font-size:16px;font-weight:750;cursor:pointer;box-shadow:0 6px 16px rgba(129,37,65,.22);transition:background .15s,transform .15s}
+.cta:active{transform:scale(.99)}
+.cta svg{width:20px;height:20px;flex:none}
+.assure{margin:10px 0 0;text-align:center;color:var(--muted);font-size:13px}
 .cta:hover{background:var(--accent-dark)}
 :focus-visible{outline:3px solid #d8a1b2;outline-offset:2px}
 .perks{display:grid;grid-template-columns:repeat(3,1fr);margin:18px 0 0;padding:14px 0;border-block:1px solid var(--line);font-size:13px;text-align:center;color:#3a363d}
@@ -65,8 +73,12 @@ summary::after{content:"+";font-size:20px;line-height:1;color:var(--muted)}
 details[open] summary::after{content:"−"}
 details p{margin:0;padding:0 0 15px;color:var(--muted);font-size:14px}
 .footer{padding:22px 0;border-top:1px solid var(--line);background:#faf9f9;color:var(--muted);font-size:12px}
-.footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-.footer p{max-width:720px;margin:0}
+.f-top{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:14px}
+.f-cols{display:flex;gap:44px;flex-wrap:wrap}
+.f-cols h3{margin:0 0 6px;font-size:13px;color:var(--ink)}
+.f-cols a,.f-cols p{display:block;margin:0 0 3px;font-size:13px}
+.f-cols a:hover{color:var(--accent)}
+.f-note{max-width:760px;margin:0}
 .sticky{display:none}
 dialog{width:min(400px,calc(100% - 28px));padding:0;border:0;border-radius:10px;color:var(--ink);box-shadow:0 24px 70px rgba(0,0,0,.28)}
 dialog::backdrop{background:rgba(20,18,22,.55)}
@@ -90,11 +102,11 @@ dialog::backdrop{background:rgba(20,18,22,.55)}
 .thumb{width:62px;height:62px}
 .stage{max-height:420px;aspect-ratio:1.05}
 .price{font-size:34px}
-.product-info>.cta{display:none}
-.sticky{position:fixed;inset:auto 0 0 0;z-index:20;display:flex;align-items:center;gap:12px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid var(--line);box-shadow:0 -4px 16px rgba(0,0,0,.08)}
+.sticky{position:fixed;inset:auto 0 0 0;z-index:20;display:flex;align-items:center;gap:12px;transform:translateY(115%);transition:transform .2s;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid var(--line);box-shadow:0 -4px 16px rgba(0,0,0,.08)}
 .sticky .p{min-width:84px;font-size:19px;font-weight:800;line-height:1.1}
 .sticky .p small{display:block;color:var(--free);font-size:12px;font-weight:700}
 .sticky .cta{min-height:46px;font-size:15px}
+.sticky.on{transform:none}
 body{padding-bottom:70px}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
@@ -143,7 +155,8 @@ body{padding-bottom:70px}
         <p class="hint" id="hint" aria-live="polite"></p>
       </fieldset>
 
-      <button class="cta" id="add-button" type="button">Escolha um tamanho</button>
+      <button class="cta" id="add-button" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l1 13H5L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span id="add-label">Escolha um tamanho</span></button>
+      <p class="assure">Você confere o frete, se houver, antes de confirmar.</p>
 
       <div class="perks">
         <div><strong>Produto grátis</strong><span>R$ 0,00</span></div>
@@ -162,8 +175,8 @@ body{padding-bottom:70px}
 
 <footer class="footer">
   <div class="wrap">
-    <a class="logo" href="#">kokeshi<i>.</i></a>
-    <p>Prévia demonstrativa: não processa pedidos ou pagamentos. Oferta independente, sem representação oficial do Corinthians.</p>
+    <div class="f-top"><a class="logo" href="#">kokeshi<i>.</i></a><div class="f-cols" id="f-cols"></div></div>
+    <p class="f-note">Oferta independente, sem representação oficial do Corinthians. Sujeita a estoque e tamanhos. Prévia demonstrativa: não processa pedidos ou pagamentos.</p>
   </div>
 </footer>
 
@@ -187,6 +200,8 @@ body{padding-bottom:70px}
 <script>
 // Para ativar um checkout real, informe a URL aqui. O tamanho vai como ?size=P|M|G.
 const CHECKOUT_URL = '';
+// Dados da loja: preencha o que tiver. Campos vazios não aparecem na página.
+const STORE = { email: '', whatsapp: '', razaoSocial: '', cnpj: '', privacidade: '', termos: '', trocas: '' };
 const imgs = [
   ['images/shirt-2.webp', 'Vista frontal da camiseta preta com brasão do Corinthians, vestida por um modelo'],
   ['images/shirt-3.webp', 'Vista traseira da camiseta preta vestida por um modelo'],
@@ -203,8 +218,8 @@ document.querySelectorAll('.thumb').forEach((b) => b.addEventListener('click', (
 }));
 
 function labels() {
-  $('add-button').textContent = size ? `Adicionar ${size} à sacola` : 'Escolha um tamanho';
-  $('sticky-button').textContent = size ? `Adicionar ${size}` : 'Escolher tamanho';
+  $('add-label').textContent = size ? `Quero minha camiseta ${size} grátis` : 'Escolha um tamanho';
+  $('sticky-button').textContent = size ? `Quero a ${size} grátis` : 'Escolher tamanho';
   $('size-label').textContent = size ? `: ${size}` : '';
 }
 document.querySelectorAll('.size').forEach((b) => b.addEventListener('click', () => {
@@ -267,6 +282,37 @@ $('cart-button').addEventListener('click', openCart);
 $('close-cart').addEventListener('click', () => $('cart-dialog').close());
 $('close-icon').addEventListener('click', () => $('cart-dialog').close());
 $('cart-dialog').addEventListener('click', (e) => { if (e.target === e.currentTarget) e.currentTarget.close(); });
+function footerCols() {
+  const box = $('f-cols');
+  const col = (title, nodes) => {
+    if (!nodes.length) return;
+    const d = document.createElement('div');
+    const h = document.createElement('h3');
+    h.textContent = title;
+    d.append(h, ...nodes);
+    box.append(d);
+  };
+  const link = (text, href) => { const a = document.createElement('a'); a.textContent = text; a.href = href; return a; };
+  const line = (text) => { const p = document.createElement('p'); p.textContent = text; return p; };
+  const att = [];
+  if (STORE.email) att.push(link(STORE.email, `mailto:${STORE.email}`));
+  if (STORE.whatsapp) att.push(link('WhatsApp', `https://wa.me/${STORE.whatsapp.replace(/\D/g, '')}`));
+  col('Atendimento', att);
+  const pol = [];
+  if (STORE.trocas) pol.push(link('Trocas e devoluções', STORE.trocas));
+  if (STORE.privacidade) pol.push(link('Privacidade', STORE.privacidade));
+  if (STORE.termos) pol.push(link('Termos de uso', STORE.termos));
+  col('Políticas', pol);
+  const emp = [];
+  if (STORE.razaoSocial) emp.push(line(STORE.razaoSocial));
+  if (STORE.cnpj) emp.push(line(`CNPJ ${STORE.cnpj}`));
+  col('Empresa', emp);
+}
+footerCols();
+const stickyEl = document.querySelector('.sticky');
+if ('IntersectionObserver' in window) {
+  new IntersectionObserver(([e]) => stickyEl.classList.toggle('on', !e.isIntersecting)).observe($('add-button'));
+} else stickyEl.classList.add('on');
 labels();
 render();
 </script>
