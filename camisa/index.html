@@ -22,8 +22,12 @@ button{font:inherit}
 h1,h2,p{margin-top:0}
 .wrap{width:min(1080px,calc(100% - 32px));margin-inline:auto}
 .gallery-column{display:grid;gap:12px;min-width:0}
-.image-banner{display:flex;align-items:center;gap:10px;min-height:44px;padding:8px 12px;border:1px solid var(--accent-line);border-radius:8px;background:linear-gradient(105deg,var(--accent-soft),#fff);color:var(--ink);font-size:13px;font-weight:650}
-.image-banner-label{flex:none;padding:4px 8px;border-radius:5px;background:var(--accent);color:#fff;font-size:10px;font-weight:800;letter-spacing:.04em}
+.image-banner{display:flex;align-items:center;gap:12px;min-height:68px;padding:12px 14px;border-left:4px solid #8ee0a8;border-radius:8px;background:var(--accent);color:#fff;box-shadow:0 4px 12px rgba(39,100,235,.16)}
+.image-banner-icon{width:23px;height:23px;flex:none;color:#fff}
+.image-banner-copy{min-width:0}
+.image-banner-copy strong{display:block;font-size:14px;line-height:1.3;font-weight:750}
+.image-banner-copy small{display:block;margin-top:3px;color:#e3ecff;font-size:11px;line-height:1.35}
+.image-banner-label{flex:none;margin-left:auto;padding:6px 9px;border-radius:6px;background:#eaf7ef;color:#176b45;font-size:11px;font-weight:800;white-space:nowrap}
 .topbar{height:36px;display:flex;align-items:center;overflow:hidden;background:var(--accent-dark);color:#fff;font-size:12px}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .ticker{width:100%;overflow:hidden}
@@ -115,6 +119,7 @@ dialog::backdrop{background:rgba(20,18,22,.55)}
 .line{display:flex;justify-content:space-between;margin:0;padding:9px 0;border-top:1px solid var(--line);font-size:14px}
 .line.t{font-weight:800;font-size:16px}
 .note{margin:8px 0 14px;color:var(--muted);font-size:12px}
+@media(max-width:520px){.image-banner{gap:9px;min-height:64px;padding:10px 11px}.image-banner-copy strong{font-size:13px}.image-banner-label{padding:5px 7px;font-size:9px}}
 @media(max-width:800px){
 .product{grid-template-columns:1fr;gap:20px}
 .gallery{grid-template-columns:1fr}
@@ -152,18 +157,22 @@ body{padding-bottom:70px}
   <p class="crumbs">Início / Camisetas / Casual Corinthians</p>
   <section class="product">
     <div class="gallery-column">
-      <div class="image-banner"><span class="image-banner-label">OFERTA</span><span>Camiseta grátis por tempo limitado</span></div>
-      <div class="gallery" role="group" aria-label="Fotos da camiseta">
-      <div class="stage">
-        <span class="tag">Grátis</span>
-        <img id="main-image" width="1031" height="1200" fetchpriority="high" decoding="async" alt="Vista frontal da camiseta preta com brasão do Corinthians, vestida por modelo">
+      <div class="image-banner">
+        <svg class="image-banner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 11 3.8H4v7l9.6 9.6a2 2 0 0 0 2.8 0l4.2-4.2a2 2 0 0 0 0-2.8Z"/><circle cx="7.5" cy="7.5" r=".7" fill="currentColor" stroke="none"/></svg>
+        <span class="image-banner-copy"><strong>Camiseta grátis por tempo limitado</strong><small>Frete ou logística, se houver, informados antes da confirmação.</small></span>
+        <span class="image-banner-label">R$ 0,00</span>
       </div>
+      <div class="gallery" role="group" aria-label="Fotos da camiseta">
       <div class="thumbs">
         <button class="thumb" type="button" aria-label="Ver camiseta no modelo" aria-pressed="true" data-i="0"><img width="1031" height="1200" alt=""></button>
         <button class="thumb" type="button" aria-label="Ver camiseta de frente" aria-pressed="false" data-i="1"><img width="966" height="1200" loading="lazy" alt=""></button>
         <button class="thumb" type="button" aria-label="Ver camiseta por trás" aria-pressed="false" data-i="2"><img width="647" height="1200" loading="lazy" alt=""></button>
         <button class="thumb" type="button" aria-label="Ver detalhe do brasão" aria-pressed="false" data-i="3"><img width="1200" height="1200" loading="lazy" alt=""></button>
         <button class="thumb" type="button" aria-label="Ver etiqueta da camiseta" aria-pressed="false" data-i="4"><img width="1200" height="1200" loading="lazy" alt=""></button>
+      </div>
+      <div class="stage">
+        <span class="tag">Grátis</span>
+        <img id="main-image" width="1031" height="1200" fetchpriority="high" decoding="async" alt="Vista frontal da camiseta preta com brasão do Corinthians, vestida por modelo">
       </div>
       </div>
     </div>
@@ -172,7 +181,6 @@ body{padding-bottom:70px}
       <h1>Camiseta Casual Corinthians</h1>
       <p class="sub">Camiseta preta casual com brasão do Corinthians.</p>
 
-      <p class="old">De <s>R$ 79,90</s> por</p>
       <div class="price-row"><span class="price">R$ 0,00</span><span class="pill">100% grátis</span></div>
       <p class="offer-deadline"><strong>ÚLTIMO DIA</strong><span>Oferta grátis termina hoje (18/10/2026)</span></p>
       <p class="ship"><b>Frete/logística:</b> se houver, o valor aparece antes de você confirmar.</p>
@@ -191,7 +199,7 @@ body{padding-bottom:70px}
         </div>
         <p class="delivery-estimate">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M8 14h3"/></svg>
-          <span><strong>Chega dia <time id="delivery-date">calculando...</time></strong><small>Previsão estimada; o prazo pode variar conforme o CEP e a logística.</small></span>
+          <span><strong>Chega dia <time id="delivery-date">calculando...</time></strong><small>Estimativa demonstrativa, sem cálculo de CEP; confirme o prazo e o frete antes de concluir.</small></span>
         </p>
         <p class="hint" id="hint" aria-live="polite"></p>
       </fieldset>
@@ -203,7 +211,7 @@ body{padding-bottom:70px}
       <div class="acc">
         <details open><summary>Descrição</summary><p>Camiseta preta casual com brasão do Corinthians. Veja frente, costas e detalhe nas fotos.</p></details>
         <details><summary>Entrega e condições</summary><p>Oferta sujeita a estoque e tamanhos. Frete/logística, se houver, será informado antes da confirmação. Esta prévia não consulta estoque real.</p></details>
-        <details><summary>Sobre esta oferta</summary><p>Oferta independente. Esta página não é um canal oficial e não declara licenciamento ou endosso do Corinthians. Valor de referência R$ 79,90, sujeito a confirmação.</p></details>
+        <details><summary>Sobre esta oferta</summary><p>Esta é uma oferta independente. Esta página não representa o Corinthians nem declara licenciamento ou endosso do clube.</p></details>
       </div>
     </div>
   </section>
@@ -254,11 +262,10 @@ document.querySelectorAll('.thumb').forEach((b) => {
   const image = b.querySelector('img');
   if (image && imgs[i]) image.src = imgs[i][0];
 });
-const arrivalDate = new Date();
-arrivalDate.setDate(arrivalDate.getDate() + 2);
-const localDate = [arrivalDate.getFullYear(), String(arrivalDate.getMonth() + 1).padStart(2, '0'), String(arrivalDate.getDate()).padStart(2, '0')].join('-');
-$('delivery-date').dateTime = localDate;
-$('delivery-date').textContent = arrivalDate.toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' });
+const brazilTodayParts = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Sao_Paulo', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date()).reduce((parts, part) => { if (part.type !== 'literal') parts[part.type] = part.value; return parts; }, {});
+const arrivalDate = new Date(Date.UTC(Number(brazilTodayParts.year), Number(brazilTodayParts.month) - 1, Number(brazilTodayParts.day) + 2));
+$('delivery-date').dateTime = arrivalDate.toISOString().slice(0, 10);
+$('delivery-date').textContent = arrivalDate.toLocaleDateString('pt-BR', { timeZone: 'UTC', day: 'numeric', month: 'long', year: 'numeric' });
 
 document.querySelectorAll('.thumb').forEach((b) => b.addEventListener('click', () => {
   const i = Number(b.dataset.i);
