@@ -1,353 +1,363 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#29252b">
-  <meta name="description" content="Camiseta Casual Corinthians com produto por R$ 0,00. Frete e logística, se houver, serão informados antes da confirmação.">
-  <title>Camiseta Casual Corinthians | Kokeshi</title>
-  <style>
-    :root {
-      --accent: #812541;
-      --accent-dark: #651a32;
-      --accent-soft: #f5e8ec;
-      --surface-soft: #faf6f7;
-      --ink: #25232a;
-      --muted: #66616a;
-      --line: #e9dfe3;
-      --success: #276b4d;
-      --danger: #9b293a;
-      --radius: 16px;
-      --shadow: 0 10px 32px rgba(39, 27, 33, .09);
-      font-synthesis: none;
-    }
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
-    body { margin: 0; color: var(--ink); background: #fff; font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-    img { display: block; max-width: 100%; }
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; }
-    .container { width: min(1100px, calc(100% - 36px)); margin-inline: auto; }
-    .topbar { padding: 8px 12px; background: #29252b; color: #fff; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: .02em; }
-    .header { position: sticky; top: 0; z-index: 10; border-bottom: 1px solid var(--line); background: rgba(255,255,255,.97); backdrop-filter: blur(12px); }
-    .header-inner { min-height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-    .logo { color: var(--accent); font-size: 24px; font-weight: 850; letter-spacing: -.06em; }
-    .logo span { color: #d8a1b2; }
-    .header-link { color: #4d4550; font-size: 13px; font-weight: 650; }
-    .header-link:hover { color: var(--accent); }
-    .header-actions { display: flex; align-items: center; gap: 18px; }
-    .cart-pill { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 7px 12px; border: 1px solid var(--line); border-radius: 999px; background: #fff; color: var(--accent); font-size: 12px; font-weight: 750; cursor: pointer; transition: border-color .18s ease, background .18s ease; }
-    .cart-pill:hover { border-color: var(--accent); background: var(--surface-soft); }
-    .cart-count { display: grid; min-width: 20px; height: 20px; padding-inline: 4px; place-items: center; border-radius: 999px; background: var(--accent-soft); }
-    .hero { padding: 38px 0 44px; background: linear-gradient(180deg, var(--surface-soft), #fff 78%); }
-    .hero-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(360px,.94fr); gap: clamp(28px,5vw,60px); align-items: center; }
-    .gallery { min-width: 0; }
-    .gallery-main { overflow: hidden; display: grid; place-items: center; aspect-ratio: 1 / 1; border: 1px solid var(--line); border-radius: var(--radius); background: #f7f6f6; box-shadow: var(--shadow); }
-    .gallery-main img { width: 100%; height: 100%; object-fit: contain; padding: 12px; }
-    .gallery-thumbs { display: flex; gap: 9px; overflow-x: auto; padding: 11px 1px 4px; }
-    .thumb { flex: 0 0 64px; width: 64px; height: 64px; overflow: hidden; padding: 3px; border: 2px solid transparent; border-radius: 9px; background: #f7f6f6; cursor: pointer; transition: border-color .18s ease, transform .18s ease; }
-    .thumb:hover { transform: translateY(-1px); }
-    .thumb img { width: 100%; height: 100%; object-fit: contain; }
-    .thumb[aria-pressed="true"] { border-color: var(--accent); }
-    .gallery-note { margin: 4px 0 0; color: var(--muted); font-size: 11px; }
-    .eyebrow { display: inline-block; margin: 0 0 9px; padding: 5px 9px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: 10px; font-weight: 850; letter-spacing: .075em; text-transform: uppercase; }
-    h1, h2, h3, p { margin-top: 0; }
-    h1 { max-width: 620px; margin-bottom: 9px; font-size: clamp(31px,4vw,44px); line-height: 1.08; letter-spacing: -.045em; }
-    .subhead { max-width: 600px; margin-bottom: 8px; color: var(--muted); font-size: 15px; }
-    .subhead strong { color: var(--ink); }
-    .independent-note { margin: 0 0 15px; color: #625b63; font-size: 11px; }
-    .price-card { margin: 15px 0; padding: 17px 18px; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; box-shadow: var(--shadow); }
-    .price-label { margin: 0 0 1px; color: var(--muted); font-size: 12px; font-weight: 700; }
-    .price-row { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
-    .price { color: var(--accent); font-size: 40px; font-weight: 850; line-height: 1.1; letter-spacing: -.04em; }
-    .reference-price { margin: 6px 0 0; color: var(--muted); font-size: 11px; }
-    .shipping-note { margin: 9px 0 0; padding-top: 9px; border-top: 1px solid var(--line); color: #514954; font-size: 12px; }
-    .shipping-note strong { color: var(--ink); }
-    .selection { min-width: 0; margin: 18px 0 0; padding: 0; border: 0; }
-    .selection-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; width: 100%; margin-bottom: 9px; padding: 0; font-size: 14px; font-weight: 750; }
-    .selection-head small { color: var(--muted); font-size: 10px; font-weight: 600; text-align: right; }
-    .sizes { display: flex; flex-wrap: wrap; gap: 8px; }
-    .size { min-width: 50px; height: 44px; padding: 0 12px; border: 1px solid #d7cbd0; border-radius: 9px; background: #fff; color: var(--ink); font-size: 13px; font-weight: 750; cursor: pointer; transition: .18s ease; }
-    .size:hover { border-color: var(--accent); transform: translateY(-1px); }
-    .size[aria-pressed="true"] { border-color: var(--accent); background: var(--accent); color: #fff; }
-    .selection-hint { min-height: 16px; margin: 7px 0 0; color: var(--muted); font-size: 10px; }
-    .cta { display: block; width: 100%; min-height: 52px; margin-top: 12px; padding: 14px 18px; border: 0; border-radius: 999px; background: var(--accent); color: #fff; text-align: center; font-size: 12px; font-weight: 850; letter-spacing: .025em; cursor: pointer; box-shadow: 0 6px 16px rgba(129,37,65,.2); transition: background .18s ease, transform .18s ease; }
-    .cta:hover { background: var(--accent-dark); transform: translateY(-1px); }
-    .cta:focus-visible, .size:focus-visible, .cart-pill:focus-visible, .header-link:focus-visible, .dialog-close:focus-visible { outline: 3px solid #d8a1b2; outline-offset: 3px; }
-    .demo-note { margin: 8px 0 0; color: #625b63; font-size: 10px; line-height: 1.45; }
-    .conditions { padding: 30px 0; border-top: 1px solid var(--line); }
-    .conditions h2 { margin: 0 0 15px; text-align: center; font-size: clamp(21px,2.6vw,28px); letter-spacing: -.03em; }
-    .conditions-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); max-width: 760px; margin-inline: auto; gap: 14px; }
-    .condition { padding: 15px 16px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
-    .condition h3 { margin: 0 0 4px; font-size: 12px; }
-    .condition p { margin: 0; color: var(--muted); font-size: 11px; }
-    .footer { padding: 18px 0; background: #242126; color: #d8d0d6; }
-    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
-    .footer .logo { color: #fff; font-size: 20px; }
-    .footer p { max-width: 760px; margin: 0; color: #d3cbd1; font-size: 10px; }
-    .cart-dialog { width: min(410px, calc(100% - 28px)); max-width: none; max-height: min(88vh, 640px); margin: auto; padding: 0; overflow: auto; border: 1px solid var(--line); border-radius: 17px; background: #fff; color: var(--ink); box-shadow: 0 24px 70px rgba(20,16,19,.28); }
-    .cart-dialog::backdrop { background: rgba(27,23,27,.58); backdrop-filter: blur(2px); }
-    .dialog-inner { padding: 21px; }
-    .dialog-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 15px; margin-bottom: 15px; }
-    .dialog-top h2 { margin: 0 0 2px; font-size: 20px; letter-spacing: -.025em; }
-    .dialog-top p { margin: 0; color: var(--muted); font-size: 11px; }
-    .dialog-close { display: grid; width: 32px; height: 32px; flex: 0 0 32px; place-items: center; border: 1px solid var(--line); border-radius: 50%; background: #fff; color: var(--ink); font-size: 19px; cursor: pointer; }
-    .cart-items { margin: 0; padding: 0; list-style: none; }
-    .cart-item { display: flex; justify-content: space-between; gap: 14px; padding: 13px 0; border-top: 1px solid var(--line); }
-    .cart-item-name { margin: 0; font-size: 12px; font-weight: 750; }
-    .cart-item-meta { margin: 2px 0 0; color: var(--muted); font-size: 10px; }
-    .cart-item-price { white-space: nowrap; font-size: 12px; font-weight: 800; }
-    .cart-empty { padding: 14px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
-    .cart-line { display: flex; justify-content: space-between; gap: 12px; margin: 0; padding: 9px 0; border-top: 1px solid var(--line); font-size: 11px; }
-    .cart-line strong { text-align: right; }
-    .cart-disclaimer { margin: 10px 0 0; padding: 11px; border-radius: 9px; background: var(--surface-soft); color: #514954; font-size: 10px; }
-    .dialog-actions { margin-top: 14px; }
-    .dialog-actions .cta { min-height: 44px; margin: 0; padding: 11px; }
-    .sticky-buy { display: none; }
-    @media (max-width: 800px) {
-      .header-inner { min-height: 59px; }
-      .header-link { display: none; }
-      .hero { padding: 22px 0 30px; }
-      .hero-grid { grid-template-columns: 1fr; gap: 17px; }
-      .gallery-main { aspect-ratio: 1.03; max-height: 390px; }
-      .gallery-main img { padding: 8px; }
-      h1 { font-size: 32px; }
-      .conditions { padding: 25px 0; }
-      .conditions-grid { grid-template-columns: 1fr; gap: 8px; }
-      .condition { padding: 12px 14px; }
-      .sticky-buy { position: fixed; right: 0; bottom: 0; left: 0; z-index: 20; display: flex; align-items: center; gap: 12px; padding: 9px 14px calc(9px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); background: rgba(255,255,255,.98); box-shadow: 0 -5px 20px rgba(42,34,48,.1); }
-      .sticky-price { min-width: 78px; color: var(--accent); font-size: 16px; font-weight: 850; line-height: 1.15; }
-      .sticky-price small { display: block; color: var(--muted); font-size: 9px; font-weight: 600; }
-      .sticky-buy .cta { min-height: 45px; margin: 0; padding: 10px; font-size: 11px; }
-      .product-info > #add-button { display: none; }
-      body { padding-bottom: 68px; }
-    }
-    @media (max-width: 480px) {
-      .container { width: min(100% - 28px, 1100px); }
-      .topbar { padding: 7px 8px; font-size: 9px; }
-      .header-inner { min-height: 56px; }
-      .gallery-main { aspect-ratio: 1.2; max-height: 360px; }
-      h1 { font-size: 29px; }
-      .subhead { font-size: 13px; }
-      .price-card { padding: 15px; }
-      .price { font-size: 37px; }
-      .selection-head { font-size: 13px; }
-      .selection-head small { max-width: 150px; }
-      .footer-inner { align-items: flex-start; }
-      .dialog-inner { padding: 18px; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#812541">
+<meta name="description" content="Camiseta Casual Corinthians grátis: o produto custa R$ 0,00. Frete, se houver, é informado antes de você confirmar.">
+<title>Camiseta Casual Corinthians grátis | Kokeshi</title>
+<style>
+:root{--accent:#812541;--accent-dark:#651a32;--accent-soft:#f5e8ec;--free:#1d6b45;--free-dark:#14522f;--free-soft:#e6f4ec;--bg-soft:#faf6f7;--ink:#25232a;--muted:#5f5a63;--line:#e9dfe3;--danger:#9b293a;--radius:14px;--shadow:0 10px 30px rgba(39,27,33,.08)}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;color:var(--ink);background:#fff;font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+h1,h2,h3,p{margin-top:0}
+.container{width:min(1100px,calc(100% - 36px));margin-inline:auto}
+.topbar{background:var(--free);color:#fff;text-align:center;font-size:13px;font-weight:650;padding:9px 12px}
+.topbar span{display:inline-block;margin:0 10px}
+.header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+.header-inner{min-height:62px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{color:var(--accent);font-size:25px;font-weight:850;letter-spacing:-.06em}
+.logo i{font-style:normal;color:#d8a1b2}
+.nav{display:flex;align-items:center;gap:22px;font-size:14px;font-weight:600;color:#4d4550}
+.nav a:hover{color:var(--accent)}
+.cart-pill{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:6px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--accent);font-size:14px;font-weight:700;cursor:pointer}
+.cart-pill:hover{border-color:var(--accent);background:var(--bg-soft)}
+.cart-count{display:grid;place-items:center;min-width:22px;height:22px;padding:0 5px;border-radius:999px;background:var(--accent);color:#fff;font-size:12px}
+.hero{padding:34px 0 44px;background:linear-gradient(180deg,var(--bg-soft),#fff 85%)}
+.crumbs{margin:0 0 18px;color:var(--muted);font-size:13px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(26px,5vw,56px);align-items:start}
+.gallery-main{position:relative;overflow:hidden;display:grid;place-items:center;aspect-ratio:1/1;border:1px solid var(--line);border-radius:var(--radius);background:#f7f6f6;box-shadow:var(--shadow)}
+.gallery-main img{width:100%;height:100%;object-fit:contain;padding:12px}
+.stamp{position:absolute;top:16px;left:16px;display:grid;place-items:center;width:84px;height:84px;border-radius:50%;background:var(--free);color:#fff;font-size:19px;font-weight:900;letter-spacing:-.01em;transform:rotate(-8deg);box-shadow:0 6px 16px rgba(20,82,47,.3);border:3px solid #fff}
+.gallery-thumbs{display:flex;gap:9px;padding:12px 1px 0}
+.thumb{flex:0 0 68px;width:68px;height:68px;padding:3px;border:2px solid transparent;border-radius:10px;background:#f7f6f6;cursor:pointer;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:contain}
+.thumb[aria-pressed="true"]{border-color:var(--accent)}
+h1{margin-bottom:6px;font-size:clamp(29px,3.8vw,40px);line-height:1.1;letter-spacing:-.04em}
+.subhead{margin-bottom:6px;color:var(--muted);font-size:16px}
+.independent{margin-bottom:16px;color:#6b646e;font-size:12px}
+.price-card{margin:0 0 20px;padding:20px;border:2px solid var(--free);border-radius:var(--radius);background:var(--free-soft)}
+.price-top{display:flex;align-items:baseline;flex-wrap:wrap;gap:10px 14px}
+.price-free{color:var(--free);font-size:clamp(44px,6vw,56px);font-weight:900;line-height:1;letter-spacing:-.05em}
+.price-old{color:var(--muted);font-size:18px;text-decoration:line-through}
+.price-zero{margin:6px 0 0;font-size:15px;font-weight:700;color:var(--free-dark)}
+.breakdown{margin:14px 0 0;padding:12px 0 0;border-top:1px solid rgba(29,107,69,.25);font-size:14px}
+.breakdown div{display:flex;justify-content:space-between;gap:12px;padding:3px 0}
+.breakdown dt{color:#33503f}
+.breakdown dd{margin:0;font-weight:700;text-align:right}
+.breakdown .total{margin-top:5px;padding-top:8px;border-top:1px dashed rgba(29,107,69,.35);font-size:15px}
+.ref-note{margin:10px 0 0;color:#4d6355;font-size:12px}
+fieldset{margin:0;padding:0;border:0;min-width:0}
+legend{display:flex;justify-content:space-between;gap:10px;width:100%;margin-bottom:10px;padding:0;font-size:15px;font-weight:750}
+legend small{color:var(--muted);font-weight:500;font-size:12px}
+.sizes{display:flex;flex-wrap:wrap;gap:10px}
+.size{min-width:64px;height:48px;padding:0 16px;border:1.5px solid #d7cbd0;border-radius:10px;background:#fff;color:var(--ink);font-size:15px;font-weight:750;cursor:pointer;transition:border-color .15s,background .15s}
+.size:hover{border-color:var(--accent)}
+.size[aria-pressed="true"]{border-color:var(--accent);background:var(--accent);color:#fff}
+.hint{min-height:20px;margin:8px 0 0;color:var(--muted);font-size:13px}
+.cta{display:block;width:100%;min-height:56px;margin-top:12px;padding:14px 18px;border:0;border-radius:12px;background:var(--free);color:#fff;font-size:17px;font-weight:800;cursor:pointer;box-shadow:0 8px 18px rgba(29,107,69,.28);transition:background .15s,transform .15s}
+.cta:hover{background:var(--free-dark);transform:translateY(-1px)}
+.cta.is-idle{background:var(--accent);box-shadow:0 8px 18px rgba(129,37,65,.22)}
+.cta.is-idle:hover{background:var(--accent-dark)}
+:focus-visible{outline:3px solid #d8a1b2;outline-offset:3px}
+.trust{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:7px;font-size:14px;color:#3d3841}
+.trust li{display:flex;gap:9px;align-items:flex-start}
+.trust li::before{content:"✓";flex:0 0 20px;height:20px;display:grid;place-items:center;border-radius:50%;background:var(--free-soft);color:var(--free);font-size:12px;font-weight:900;margin-top:2px}
+.demo-note{margin:12px 0 0;color:#6b646e;font-size:12px}
+section.block{padding:44px 0;border-top:1px solid var(--line)}
+section.block h2{margin:0 0 22px;font-size:clamp(23px,3vw,30px);letter-spacing:-.03em}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:0;padding:0;list-style:none;counter-reset:s}
+.steps li{counter-increment:s;padding:18px 18px 18px 64px;position:relative;border:1px solid var(--line);border-radius:var(--radius);background:#fff}
+.steps li::before{content:counter(s);position:absolute;left:18px;top:18px;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;font-size:15px}
+.steps h3{margin:0 0 3px;font-size:16px}
+.steps p{margin:0;color:var(--muted);font-size:14px}
+.faq{max-width:760px;display:grid;gap:10px}
+details{border:1px solid var(--line);border-radius:12px;background:#fff}
+summary{padding:15px 18px;font-weight:700;font-size:15px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--accent);font-size:20px;line-height:1}
+details[open] summary::after{content:"−"}
+details p{margin:0;padding:0 18px 16px;color:var(--muted);font-size:14px}
+.final{background:var(--bg-soft);text-align:center}
+.final p{max-width:520px;margin:0 auto 4px;color:var(--muted)}
+.final .cta{max-width:380px;margin:16px auto 0}
+.footer{padding:22px 0;background:#242126;color:#d3cbd1}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.footer .logo{color:#fff;font-size:21px}
+.footer p{max-width:700px;margin:0;font-size:12px}
+.sticky-buy{display:none}
+.cart-dialog{width:min(420px,calc(100% - 28px));max-height:min(88vh,660px);margin:auto;padding:0;overflow:auto;border:1px solid var(--line);border-radius:16px;color:var(--ink);box-shadow:0 24px 70px rgba(20,16,19,.28)}
+.cart-dialog::backdrop{background:rgba(27,23,27,.58)}
+.dialog-inner{padding:22px}
+.dialog-top{display:flex;justify-content:space-between;gap:14px;margin-bottom:14px}
+.dialog-top h2{margin:0 0 2px;font-size:21px}
+.dialog-top p{margin:0;color:var(--muted);font-size:13px}
+.dialog-close{width:34px;height:34px;flex:0 0 34px;border:1px solid var(--line);border-radius:50%;background:#fff;font-size:20px;cursor:pointer}
+.cart-items{margin:0;padding:0;list-style:none}
+.cart-item{display:flex;justify-content:space-between;gap:14px;padding:13px 0;border-top:1px solid var(--line)}
+.cart-item-name{margin:0;font-size:14px;font-weight:750}
+.cart-item-meta{margin:2px 0 0;color:var(--muted);font-size:13px}
+.cart-item-price{color:var(--free);font-size:14px;font-weight:850}
+.cart-empty{padding:14px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+.cart-line{display:flex;justify-content:space-between;gap:12px;margin:0;padding:9px 0;border-top:1px solid var(--line);font-size:14px}
+.cart-line.total{font-size:16px;font-weight:800}
+.cart-disclaimer{margin:10px 0 0;padding:11px;border-radius:9px;background:var(--bg-soft);color:#514954;font-size:12px}
+@media(max-width:800px){
+.nav a{display:none}
+.hero{padding:20px 0 30px}
+.hero-grid{grid-template-columns:1fr;gap:20px}
+.gallery-main{aspect-ratio:1.05;max-height:400px}
+.steps{grid-template-columns:1fr}
+section.block{padding:34px 0}
+.topbar span{display:block;margin:0}
+.sticky-buy{position:fixed;inset:auto 0 0 0;z-index:20;display:flex;align-items:center;gap:12px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.98);border-top:1px solid var(--line);box-shadow:0 -5px 20px rgba(42,34,48,.1)}
+.sticky-price{min-width:84px;color:var(--free);font-size:20px;font-weight:900;line-height:1.1}
+.sticky-price small{display:block;color:var(--muted);font-size:11px;font-weight:600}
+.sticky-buy .cta{margin:0;min-height:48px;font-size:15px;padding:10px}
+.product-info>#add-button{display:none}
+body{padding-bottom:72px}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition-duration:.01ms!important}}
+</style>
 </head>
 <body>
-  <div class="topbar">Produto R$ 0,00 <span aria-hidden="true">·</span> frete antes de confirmar <span aria-hidden="true">·</span> sem recorrência</div>
+<div class="topbar">Camiseta grátis: produto a R$ 0,00<span>Frete informado antes de confirmar</span><span>Sem cobrança recorrente</span></div>
 
-  <header class="header">
-    <div class="container header-inner">
-      <a class="logo" href="#top" aria-label="Kokeshi, início">kokeshi<span>.</span></a>
-      <div class="header-actions">
-        <a class="header-link" href="#condicoes">Condições</a>
-        <button class="cart-pill" id="cart-button" type="button" aria-label="Abrir sacola demonstrativa, 0 itens">Sacola <span class="cart-count" id="cart-count">0</span></button>
-      </div>
-    </div>
-  </header>
-
-  <main id="top">
-    <section class="hero" id="oferta" aria-labelledby="product-title">
-      <div class="container hero-grid">
-        <div class="gallery" role="group" aria-label="Galeria da camiseta">
-          <div class="gallery-main">
-            <img id="main-image" src="images/shirt-2.webp" width="1031" height="1200" fetchpriority="high" decoding="async" alt="Vista frontal da camiseta preta com brasão do Corinthians, vestida por um modelo">
-          </div>
-          <div class="gallery-thumbs" role="group" aria-label="Fotos da peça: frente, costas e detalhe">
-            <button class="thumb" type="button" aria-label="Ver camiseta de frente" aria-pressed="true" data-index="0"><img src="images/shirt-2.webp" width="1031" height="1200" decoding="async" alt=""></button>
-            <button class="thumb" type="button" aria-label="Ver camiseta por trás" aria-pressed="false" data-index="1"><img src="images/shirt-3.webp" width="647" height="1200" loading="lazy" decoding="async" alt=""></button>
-            <button class="thumb" type="button" aria-label="Ver detalhe do brasão" aria-pressed="false" data-index="2"><img src="images/shirt-4.webp" width="1200" height="1200" loading="lazy" decoding="async" alt=""></button>
-          </div>
-          <p class="gallery-note">Frente, costas e detalhe da peça.</p>
-        </div>
-
-        <div class="product-info">
-          <p class="eyebrow">Oferta promocional</p>
-          <h1 id="product-title">Camiseta Casual Corinthians</h1>
-          <p class="subhead">Camiseta preta casual com brasão do Corinthians.</p>
-          <p class="independent-note">Oferta independente; esta página não é um canal oficial e não declara licenciamento ou endosso do Corinthians.</p>
-
-          <div class="price-card" aria-label="Preço do produto e informações de entrega">
-            <p class="price-label">Preço do produto</p>
-            <div class="price-row"><strong class="price">R$ 0,00</strong></div>
-            <p class="reference-price">Referência informada: R$ 79,90 (sujeita a confirmação).</p>
-            <p class="shipping-note"><strong>Entrega:</strong> o valor de frete/logística, se houver, aparece antes da confirmação.</p>
-          </div>
-
-          <fieldset class="selection" id="tamanhos" aria-describedby="size-hint">
-            <legend class="selection-head"><span>Escolha o tamanho</span><small>Seletor demonstrativo</small></legend>
-            <div class="sizes" role="group" aria-label="Tamanhos para demonstração">
-              <button class="size" type="button" data-size="P" aria-pressed="false">P</button>
-              <button class="size" type="button" data-size="M" aria-pressed="false">M</button>
-              <button class="size" type="button" data-size="G" aria-pressed="false">G</button>
-            </div>
-            <p class="selection-hint" id="size-hint" aria-live="polite">Esta prévia não consulta estoque real.</p>
-          </fieldset>
-          <button class="cta" id="add-button" type="button">ESCOLHA UM TAMANHO</button>
-          <p class="demo-note">Prévia demonstrativa: a sacola não envia pedidos ou pagamentos.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="conditions" id="condicoes" aria-labelledby="conditions-title">
-      <div class="container">
-        <h2 id="conditions-title">Condições da oferta</h2>
-        <div class="conditions-grid">
-          <article class="condition"><h3>Entrega</h3><p>Frete/logística, se houver, será informado antes da confirmação.</p></article>
-          <article class="condition"><h3>Disponibilidade</h3><p>Oferta sujeita a estoque e tamanhos. Esta prévia não consulta estoque real.</p></article>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-inner">
-      <a class="logo" href="#top">kokeshi<span>.</span></a>
-      <p>Prévia demonstrativa: não processa pedidos ou pagamentos. Oferta independente, sem representação oficial do Corinthians.</p>
-    </div>
-  </footer>
-
-  <div class="sticky-buy" id="sticky-buy" aria-label="Atalho para selecionar o tamanho">
-    <span class="sticky-price">R$ 0,00<small>preço do produto</small></span>
-    <button class="cta" type="button" id="sticky-button">ESCOLHER TAMANHO</button>
+<header class="header">
+  <div class="container header-inner">
+    <a class="logo" href="#top" aria-label="Kokeshi, início">kokeshi<i>.</i></a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#duvidas">Dúvidas</a>
+      <button class="cart-pill" id="cart-button" type="button" aria-label="Abrir sacola, 0 itens">Sacola <span class="cart-count" id="cart-count">0</span></button>
+    </nav>
   </div>
+</header>
 
-  <dialog class="cart-dialog" id="cart-dialog" aria-labelledby="cart-title">
-    <div class="dialog-inner">
-      <div class="dialog-top">
-        <div><h2 id="cart-title">Sacola demonstrativa</h2><p>Nenhum pedido será enviado.</p></div>
-        <button class="dialog-close" id="close-icon" type="button" aria-label="Fechar sacola">×</button>
+<main id="top">
+<section class="hero" aria-labelledby="product-title">
+  <div class="container">
+    <p class="crumbs">Início / Camisetas / Casual Corinthians</p>
+    <div class="hero-grid">
+      <div class="gallery" role="group" aria-label="Galeria da camiseta">
+        <div class="gallery-main">
+          <span class="stamp" aria-hidden="true">GRÁTIS</span>
+          <img id="main-image" src="images/shirt-2.webp" width="1031" height="1200" fetchpriority="high" decoding="async" alt="Vista frontal da camiseta preta com brasão do Corinthians, vestida por um modelo">
+        </div>
+        <div class="gallery-thumbs" role="group" aria-label="Fotos da peça: frente, costas e detalhe">
+          <button class="thumb" type="button" aria-label="Ver camiseta de frente" aria-pressed="true" data-index="0"><img src="images/shirt-2.webp" width="1031" height="1200" alt=""></button>
+          <button class="thumb" type="button" aria-label="Ver camiseta por trás" aria-pressed="false" data-index="1"><img src="images/shirt-3.webp" width="647" height="1200" loading="lazy" alt=""></button>
+          <button class="thumb" type="button" aria-label="Ver detalhe do brasão" aria-pressed="false" data-index="2"><img src="images/shirt-4.webp" width="1200" height="1200" loading="lazy" alt=""></button>
+        </div>
       </div>
-      <ul class="cart-items" id="cart-items" aria-live="polite"></ul>
-      <p class="cart-line"><span>Subtotal do produto</span><strong>R$ 0,00</strong></p>
-      <p class="cart-line"><span>Frete/logística</span><strong>A informar</strong></p>
-      <p class="cart-disclaimer">Simulação local: não envia dados, pedidos ou pagamentos. Confira frete e disponibilidade antes de qualquer compra real.</p>
-      <div class="dialog-actions"><button class="cta" id="close-cart" type="button">FECHAR</button></div>
+
+      <div class="product-info">
+        <h1 id="product-title">Camiseta Casual Corinthians</h1>
+        <p class="subhead">Camiseta preta casual com brasão do Corinthians.</p>
+        <p class="independent">Oferta independente: esta página não é um canal oficial e não declara licenciamento ou endosso do Corinthians.</p>
+
+        <div class="price-card" aria-label="Preço e entrega">
+          <div class="price-top">
+            <strong class="price-free">Grátis</strong>
+            <span class="price-old" aria-label="Valor de referência R$ 79,90">R$ 79,90</span>
+          </div>
+          <p class="price-zero">Você paga R$ 0,00 pela camiseta</p>
+          <dl class="breakdown">
+            <div><dt>Camiseta</dt><dd>R$ 0,00</dd></div>
+            <div><dt>Frete/logística</dt><dd>Informado antes de confirmar</dd></div>
+            <div class="total"><dt>Total do produto</dt><dd>R$ 0,00</dd></div>
+          </dl>
+          <p class="ref-note">R$ 79,90 é o valor de referência informado, sujeito a confirmação.</p>
+        </div>
+
+        <fieldset id="tamanhos" aria-describedby="size-hint">
+          <legend><span>Escolha o tamanho</span><small>Prévia sem consulta de estoque</small></legend>
+          <div class="sizes" role="group" aria-label="Tamanhos">
+            <button class="size" type="button" data-size="P" aria-pressed="false">P</button>
+            <button class="size" type="button" data-size="M" aria-pressed="false">M</button>
+            <button class="size" type="button" data-size="G" aria-pressed="false">G</button>
+          </div>
+          <p class="hint" id="size-hint" aria-live="polite">Selecione um tamanho para continuar.</p>
+        </fieldset>
+
+        <button class="cta is-idle" id="add-button" type="button">Escolha um tamanho</button>
+
+        <ul class="trust">
+          <li>Camiseta sem custo: R$ 0,00 pelo produto</li>
+          <li>Se houver frete, você vê o valor antes de confirmar</li>
+          <li>Sem cobrança recorrente</li>
+        </ul>
+        <p class="demo-note">Prévia demonstrativa: a sacola desta página não envia pedidos nem pagamentos.</p>
+      </div>
     </div>
-  </dialog>
+  </div>
+</section>
 
-  <script>
-    const productImages = [
-      { src: 'images/shirt-2.webp', alt: 'Vista frontal da camiseta preta com brasão do Corinthians, vestida por um modelo' },
-      { src: 'images/shirt-3.webp', alt: 'Vista traseira da camiseta preta vestida por um modelo' },
-      { src: 'images/shirt-4.webp', alt: 'Detalhe aproximado do brasão na camiseta preta' }
-    ];
-    let selectedSize = '';
-    let cartItems = [];
+<section class="block" id="como-funciona" aria-labelledby="how-title">
+  <div class="container">
+    <h2 id="how-title">Como pegar a sua camiseta grátis</h2>
+    <ol class="steps">
+      <li><h3>Escolha o tamanho</h3><p>Selecione P, M ou G e adicione à sacola.</p></li>
+      <li><h3>Confira a entrega</h3><p>Se houver frete, o valor aparece antes da confirmação.</p></li>
+      <li><h3>Confirme o pedido</h3><p>O produto continua em R$ 0,00. Nada é cobrado de forma recorrente.</p></li>
+    </ol>
+  </div>
+</section>
 
-    function setGalleryImage(index) {
-      const image = productImages[index];
-      const mainImage = document.getElementById('main-image');
-      mainImage.src = image.src;
-      mainImage.alt = image.alt;
-      document.querySelectorAll('.thumb').forEach((thumb) => {
-        thumb.setAttribute('aria-pressed', String(Number(thumb.dataset.index) === index));
-      });
-    }
+<section class="block" id="duvidas" aria-labelledby="faq-title">
+  <div class="container">
+    <h2 id="faq-title">Dúvidas frequentes</h2>
+    <div class="faq">
+      <details><summary>A camiseta é grátis mesmo?</summary><p>Sim. O preço do produto é R$ 0,00. O único valor que pode aparecer é o de frete/logística, e ele é mostrado antes de você confirmar.</p></details>
+      <details><summary>Vou ser cobrado todo mês?</summary><p>Não. Esta oferta não tem cobrança recorrente.</p></details>
+      <details><summary>Tem estoque para todos os tamanhos?</summary><p>A oferta está sujeita a estoque e tamanhos disponíveis. Esta prévia não consulta estoque real.</p></details>
+      <details><summary>Esta é uma loja oficial do Corinthians?</summary><p>Não. É uma oferta independente, sem licenciamento ou endosso do clube.</p></details>
+    </div>
+  </div>
+</section>
 
-    document.querySelectorAll('.thumb').forEach((button) => {
-      button.addEventListener('click', () => setGalleryImage(Number(button.dataset.index)));
-    });
+<section class="block final">
+  <div class="container">
+    <h2>Camiseta preta, R$ 0,00</h2>
+    <p>Escolha seu tamanho e veja o resumo antes de confirmar.</p>
+    <button class="cta is-idle" id="final-button" type="button">Escolher meu tamanho</button>
+  </div>
+</section>
+</main>
 
-    function updateActionLabels() {
-      const label = selectedSize ? `ADICIONAR ${selectedSize} À SACOLA` : 'ESCOLHA UM TAMANHO';
-      document.getElementById('add-button').textContent = label;
-      document.getElementById('sticky-button').textContent = selectedSize ? `${label} (DEMO)` : 'ESCOLHER TAMANHO';
-    }
+<footer class="footer">
+  <div class="container footer-inner">
+    <a class="logo" href="#top">kokeshi<i>.</i></a>
+    <p>Prévia demonstrativa: não processa pedidos ou pagamentos. Oferta independente, sem representação oficial do Corinthians. Sujeita a estoque e tamanhos.</p>
+  </div>
+</footer>
 
-    document.querySelectorAll('.size').forEach((button) => {
-      button.addEventListener('click', () => {
-        selectedSize = button.dataset.size;
-        document.querySelectorAll('.size').forEach((size) => {
-          size.setAttribute('aria-pressed', String(size === button));
-        });
-        document.getElementById('size-hint').textContent = `Tamanho ${selectedSize} selecionado. Estoque não consultado.`;
-        document.getElementById('size-hint').style.color = 'var(--success)';
-        updateActionLabels();
-      });
-    });
+<div class="sticky-buy" aria-label="Atalho de compra">
+  <span class="sticky-price">Grátis<small>R$ 0,00 pelo produto</small></span>
+  <button class="cta is-idle" type="button" id="sticky-button">Escolher tamanho</button>
+</div>
 
-    function renderCart() {
-      const list = document.getElementById('cart-items');
-      list.replaceChildren();
-      document.getElementById('cart-count').textContent = String(cartItems.length);
-      document.getElementById('cart-button').setAttribute('aria-label', `Abrir sacola demonstrativa, ${cartItems.length} ${cartItems.length === 1 ? 'item' : 'itens'}`);
-      if (cartItems.length === 0) {
-        const empty = document.createElement('li');
-        empty.className = 'cart-empty';
-        empty.textContent = 'Sua sacola está vazia.';
-        list.append(empty);
-        return;
-      }
-      cartItems.forEach((item) => {
-        const row = document.createElement('li');
-        row.className = 'cart-item';
-        const detail = document.createElement('div');
-        const name = document.createElement('p');
-        name.className = 'cart-item-name';
-        name.textContent = 'Camiseta Casual Corinthians';
-        const size = document.createElement('p');
-        size.className = 'cart-item-meta';
-        size.textContent = `Tamanho ${item.size}`;
-        const price = document.createElement('span');
-        price.className = 'cart-item-price';
-        price.textContent = 'R$ 0,00';
-        detail.append(name, size);
-        row.append(detail, price);
-        list.append(row);
-      });
-    }
+<dialog class="cart-dialog" id="cart-dialog" aria-labelledby="cart-title">
+  <div class="dialog-inner">
+    <div class="dialog-top">
+      <div><h2 id="cart-title">Sua sacola</h2><p>Simulação: nenhum pedido será enviado.</p></div>
+      <button class="dialog-close" id="close-icon" type="button" aria-label="Fechar sacola">×</button>
+    </div>
+    <ul class="cart-items" id="cart-items" aria-live="polite"></ul>
+    <p class="cart-line"><span>Subtotal do produto</span><strong>R$ 0,00</strong></p>
+    <p class="cart-line"><span>Frete/logística</span><strong>A informar</strong></p>
+    <p class="cart-line total"><span>Total do produto</span><strong>R$ 0,00</strong></p>
+    <p class="cart-disclaimer">Esta sacola é local e não envia dados, pedidos ou pagamentos. Confira frete e disponibilidade antes de qualquer compra real.</p>
+    <button class="cta" id="close-cart" type="button" style="min-height:48px;font-size:15px">Continuar vendo a página</button>
+  </div>
+</dialog>
 
-    function openCart() {
-      renderCart();
-      const dialog = document.getElementById('cart-dialog');
-      if (typeof dialog.showModal === 'function') dialog.showModal();
-      else dialog.setAttribute('open', '');
-    }
+<script>
+// Para ativar um checkout real, informe a URL aqui. O tamanho vai como ?size=P|M|G.
+const CHECKOUT_URL = '';
 
-    function selectSizePrompt() {
-      const hint = document.getElementById('size-hint');
-      hint.textContent = 'Selecione P, M ou G para continuar.';
-      hint.style.color = 'var(--danger)';
-      document.getElementById('tamanhos').scrollIntoView({ behavior: 'smooth', block: 'center' });
-      document.querySelector('.size').focus({ preventScroll: true });
-    }
+const productImages = [
+  { src: 'images/shirt-2.webp', alt: 'Vista frontal da camiseta preta com brasão do Corinthians, vestida por um modelo' },
+  { src: 'images/shirt-3.webp', alt: 'Vista traseira da camiseta preta vestida por um modelo' },
+  { src: 'images/shirt-4.webp', alt: 'Detalhe aproximado do brasão na camiseta preta' }
+];
+let selectedSize = '';
+let cartItems = [];
+const $ = (id) => document.getElementById(id);
 
-    function addToDemoCart() {
-      if (!selectedSize) {
-        selectSizePrompt();
-        return;
-      }
-      cartItems.push({ size: selectedSize });
-      openCart();
-    }
+function setGalleryImage(i) {
+  $('main-image').src = productImages[i].src;
+  $('main-image').alt = productImages[i].alt;
+  document.querySelectorAll('.thumb').forEach((t) => t.setAttribute('aria-pressed', String(Number(t.dataset.index) === i)));
+}
+document.querySelectorAll('.thumb').forEach((b) => b.addEventListener('click', () => setGalleryImage(Number(b.dataset.index))));
 
-    document.getElementById('add-button').addEventListener('click', addToDemoCart);
-    document.getElementById('sticky-button').addEventListener('click', () => {
-      if (!selectedSize) {
-        document.getElementById('tamanhos').scrollIntoView({ behavior: 'smooth', block: 'center' });
-        document.querySelector('.size').focus({ preventScroll: true });
-      } else {
-        addToDemoCart();
-      }
-    });
-    document.getElementById('cart-button').addEventListener('click', openCart);
-    document.getElementById('close-cart').addEventListener('click', () => document.getElementById('cart-dialog').close());
-    document.getElementById('close-icon').addEventListener('click', () => document.getElementById('cart-dialog').close());
-    document.getElementById('cart-dialog').addEventListener('click', (event) => {
-      if (event.target === event.currentTarget) event.currentTarget.close();
-    });
+function updateLabels() {
+  const idle = !selectedSize;
+  $('add-button').textContent = idle ? 'Escolha um tamanho' : `Quero minha camiseta ${selectedSize} grátis`;
+  $('sticky-button').textContent = idle ? 'Escolher tamanho' : `Quero a ${selectedSize} grátis`;
+  $('final-button').textContent = idle ? 'Escolher meu tamanho' : `Quero minha camiseta ${selectedSize} grátis`;
+  ['add-button', 'sticky-button', 'final-button'].forEach((id) => $(id).classList.toggle('is-idle', idle));
+}
 
-    updateActionLabels();
-    renderCart();
-  </script>
+document.querySelectorAll('.size').forEach((button) => {
+  button.addEventListener('click', () => {
+    selectedSize = button.dataset.size;
+    document.querySelectorAll('.size').forEach((s) => s.setAttribute('aria-pressed', String(s === button)));
+    $('size-hint').textContent = `Tamanho ${selectedSize} selecionado. Estoque não consultado nesta prévia.`;
+    $('size-hint').style.color = 'var(--free)';
+    updateLabels();
+  });
+});
+
+function renderCart() {
+  const list = $('cart-items');
+  list.replaceChildren();
+  const n = cartItems.length;
+  $('cart-count').textContent = String(n);
+  $('cart-button').setAttribute('aria-label', `Abrir sacola, ${n} ${n === 1 ? 'item' : 'itens'}`);
+  if (!n) {
+    const empty = document.createElement('li');
+    empty.className = 'cart-empty';
+    empty.textContent = 'Sua sacola está vazia. Escolha um tamanho para começar.';
+    list.append(empty);
+    return;
+  }
+  cartItems.forEach((item) => {
+    const row = document.createElement('li');
+    row.className = 'cart-item';
+    const detail = document.createElement('div');
+    const name = document.createElement('p');
+    name.className = 'cart-item-name';
+    name.textContent = 'Camiseta Casual Corinthians';
+    const meta = document.createElement('p');
+    meta.className = 'cart-item-meta';
+    meta.textContent = `Tamanho ${item.size}`;
+    const price = document.createElement('span');
+    price.className = 'cart-item-price';
+    price.textContent = 'Grátis';
+    detail.append(name, meta);
+    row.append(detail, price);
+    list.append(row);
+  });
+}
+
+function openCart() {
+  renderCart();
+  const d = $('cart-dialog');
+  if (typeof d.showModal === 'function') d.showModal(); else d.setAttribute('open', '');
+}
+
+function promptSize() {
+  const hint = $('size-hint');
+  hint.textContent = 'Selecione P, M ou G para continuar.';
+  hint.style.color = 'var(--danger)';
+  $('tamanhos').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  document.querySelector('.size').focus({ preventScroll: true });
+}
+
+function buy() {
+  if (!selectedSize) { promptSize(); return; }
+  if (CHECKOUT_URL) {
+    window.location.href = `${CHECKOUT_URL}${CHECKOUT_URL.includes('?') ? '&' : '?'}size=${encodeURIComponent(selectedSize)}`;
+    return;
+  }
+  cartItems.push({ size: selectedSize });
+  openCart();
+}
+
+['add-button', 'sticky-button', 'final-button'].forEach((id) => $(id).addEventListener('click', buy));
+$('cart-button').addEventListener('click', openCart);
+$('close-cart').addEventListener('click', () => $('cart-dialog').close());
+$('close-icon').addEventListener('click', () => $('cart-dialog').close());
+$('cart-dialog').addEventListener('click', (e) => { if (e.target === e.currentTarget) e.currentTarget.close(); });
+
+updateLabels();
+renderCart();
+</script>
 </body>
 </html>
