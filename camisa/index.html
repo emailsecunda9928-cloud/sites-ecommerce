@@ -20,9 +20,9 @@
       --paper: #fff;
       --canvas: #f8f7f4;
       --wash: #f1f1eb;
-      --green: #246346;
-      --green-dark: #194d36;
-      --green-soft: #edf5ef;
+      --green: #c5212b;
+      --green-dark: #9f1720;
+      --green-soft: #fbecee;
       --red: #a23932;
       --shadow: 0 18px 50px rgba(28, 31, 27, .08);
       --radius: 18px;
@@ -37,7 +37,7 @@
     .wrap { width: min(1180px, calc(100% - 48px)); margin-inline: auto; }
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
     .announcement { min-height: 36px; display: flex; align-items: center; justify-content: center; padding: 7px 16px; background: var(--ink); color: #fff; text-align: center; font-size: 11px; letter-spacing: .045em; }
-    .announcement strong { color: #cde5d3; font-weight: 700; }
+    .announcement strong { color: #ffc2c6; font-weight: 800; }
     .header { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.96); border-bottom: 1px solid rgba(231,230,224,.85); backdrop-filter: blur(12px); }
     .header-inner { height: 76px; display: flex; align-items: center; justify-content: space-between; }
     .logo { display: inline-flex; align-items: baseline; color: var(--ink); font-size: 28px; line-height: 1; font-weight: 850; letter-spacing: -.075em; }
@@ -71,13 +71,13 @@
     .rating-note { display: inline-flex; align-items: center; gap: 7px; margin: 0 0 20px; color: var(--muted); font-size: 11px; }
     .rating-note svg { width: 15px; height: 15px; color: var(--green); }
     .rating-note strong { color: var(--ink-soft); font-weight: 650; }
-    .price-block { padding: 19px 0 17px; border-block: 1px solid var(--line); }
+    .price-block { margin: 0; padding: 19px 18px 17px; border: 1px solid #f1d9db; border-left: 4px solid var(--green); border-radius: 12px; background: #fff9f9; }
     .price-kicker { display: block; margin-bottom: 4px; color: var(--muted); font-size: 11px; }
     .price-row { display: flex; align-items: center; flex-wrap: wrap; gap: 11px; }
-    .price { font-size: 40px; line-height: 1; letter-spacing: -.055em; font-weight: 780; }
-    .price-badge { padding: 5px 9px; border-radius: 999px; background: var(--green-soft); color: var(--green-dark); font-size: 11px; font-weight: 750; }
+    .price { color: var(--green-dark); font-size: 44px; line-height: 1; letter-spacing: -.055em; font-weight: 820; }
+    .price-badge { padding: 6px 10px; border-radius: 999px; background: var(--green); color: #fff; font-size: 10px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
     .price-footnote { margin: 8px 0 0; color: var(--muted); font-size: 11px; }
-    .offer-card { display: flex; gap: 12px; margin: 18px 0 21px; padding: 14px 15px; border: 1px solid #dce7dd; border-radius: 12px; background: #f7faf6; }
+    .offer-card { display: flex; gap: 12px; margin: 14px 0 20px; padding: 13px 15px; border: 1px solid #f1d9db; border-radius: 12px; background: #fffafa; }
     .offer-icon { width: 20px; height: 20px; flex: none; color: var(--green); }
     .offer-copy strong { display: block; margin-bottom: 2px; font-size: 12px; }
     .offer-copy p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
@@ -87,12 +87,12 @@
     .sizes { display: flex; gap: 9px; }
     .size { width: 54px; height: 48px; border: 1px solid var(--line-strong); border-radius: 9px; background: #fff; cursor: pointer; font-size: 13px; font-weight: 650; transition: background .15s, color .15s, border-color .15s; }
     .size:hover { border-color: var(--ink); }
-    .size[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: #fff; }
+    .size[aria-pressed="true"] { border-color: var(--green-dark); background: var(--green-dark); color: #fff; }
     .size-fieldset { margin: 0; padding: 0; border: 0; }
     .hint { min-height: 19px; margin: 8px 0 0; color: var(--muted); font-size: 11px; }
     .hint.error { color: var(--red); }
-    .cta { width: 100%; min-height: 54px; display: inline-flex; justify-content: center; align-items: center; gap: 10px; margin-top: 7px; padding: 14px 18px; border: 1px solid var(--ink); border-radius: 10px; background: var(--ink); color: #fff; font-size: 13px; font-weight: 730; cursor: pointer; transition: background .18s, border-color .18s, transform .18s, box-shadow .18s; }
-    .cta:hover { border-color: var(--green-dark); background: var(--green-dark); box-shadow: 0 8px 18px rgba(25,77,54,.16); }
+    .cta { width: 100%; min-height: 58px; display: inline-flex; justify-content: center; align-items: center; gap: 10px; margin-top: 7px; padding: 15px 18px; border: 1px solid var(--green); border-radius: 10px; background: var(--green); color: #fff; font-size: 14px; font-weight: 780; cursor: pointer; transition: background .18s, border-color .18s, transform .18s, box-shadow .18s; }
+    .cta:hover { border-color: var(--green-dark); background: var(--green-dark); box-shadow: 0 8px 18px rgba(159,23,32,.2); }
     .cta:active { transform: scale(.99); }
     .cta svg { width: 18px; height: 18px; flex: none; }
     .checkout-note { display: flex; align-items: flex-start; gap: 8px; margin: 11px 0 0; color: var(--muted); font-size: 11px; }
@@ -203,7 +203,7 @@
   </style>
 </head>
 <body>
-  <div class="announcement" role="note">Preço do produto <strong>&nbsp;R$ 0,00&nbsp;</strong> · eventuais custos são mostrados antes da confirmação</div>
+  <div class="announcement" role="note">CORINTHIANS NO PEITO <strong>&nbsp;· PRODUTO R$ 0,00&nbsp;</strong> · frete, se houver, a confirmar</div>
   <header class="header">
     <div class="wrap header-inner">
       <div class="brand-lockup">
@@ -238,35 +238,34 @@
       </div>
 
       <div class="product-info">
-        <p class="eyebrow">Kokeshi · Coleção casual</p>
-        <h1 id="product-title">Camiseta Casual Corinthians</h1>
-        <p class="subtitle">Uma peça casual preta com brasão do Corinthians. Confira as imagens e escolha o tamanho antes de continuar.</p>
-        <p class="rating-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 14.8 8.7 21 9.6 16.5 14l1.1 6.2L12 17.3l-5.6 2.9L7.5 14 3 9.6l6.2-.9L12 3Z"/></svg><strong>Informações claras, sem surpresa no valor</strong></p>
+        <p class="eyebrow">ESTILO DE TORCIDA · KOKESHI</p>
+        <h1 id="product-title">Corinthians no peito. Seu estilo em campo.</h1>
+        <p class="subtitle">Camiseta casual preta com brasão do Corinthians — para levar a paixão pelo Timão ao seu visual do dia a dia.</p>
 
         <div class="price-block" aria-label="Preço do produto">
-          <span class="price-kicker">Preço do produto</span>
+          <span class="price-kicker">A camiseta sai por</span>
           <div class="price-row"><span class="price">R$ 0,00</span><span class="price-badge">Produto grátis</span></div>
           <p class="price-footnote">Frete ou logística, se aplicável, será informado antes da confirmação.</p>
         </div>
 
         <div class="offer-card">
           <svg class="offer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
-          <div class="offer-copy"><strong>Condições da oferta</strong><p>Disponibilidade e tamanhos estão sujeitos a confirmação. A página não consulta estoque em tempo real.</p></div>
+          <div class="offer-copy"><strong>Uma peça de torcida, com preço claro</strong><p>Escolha P, M ou G. Eventuais custos de entrega e a disponibilidade precisam ser confirmados antes do pedido.</p></div>
         </div>
 
         <fieldset class="size-fieldset" id="tamanhos" aria-describedby="hint">
           <legend class="sr-only">Selecione o tamanho</legend>
-          <div class="size-heading"><strong>Tamanho <span id="size-label" aria-live="polite"></span></strong><button class="size-guide-link" type="button" id="size-guide-link">Como escolher?</button></div>
+          <div class="size-heading"><strong>Escolha seu tamanho <span id="size-label" aria-live="polite"></span></strong><button class="size-guide-link" type="button" id="size-guide-link">Ajuda com o tamanho</button></div>
           <div class="sizes">
             <button class="size" type="button" data-size="P" aria-pressed="false">P</button>
             <button class="size" type="button" data-size="M" aria-pressed="false">M</button>
             <button class="size" type="button" data-size="G" aria-pressed="false">G</button>
           </div>
-          <p class="hint" id="hint" aria-live="polite">Selecione uma opção para continuar.</p>
+          <p class="hint" id="hint" aria-live="polite">P · M · G — toque para selecionar.</p>
         </fieldset>
 
-        <button class="cta" id="add-button" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l1 12H4L5 8Z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg><span id="add-label">Selecione um tamanho</span></button>
-        <p class="checkout-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 2.9 8.1 7 10 4.1-1.9 7-5.5 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg><span>Você verá eventuais custos e condições antes de qualquer confirmação.</span></p>
+        <button class="cta" id="add-button" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l1 12H4L5 8Z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg><span id="add-label">Escolher meu tamanho</span></button>
+        <p class="checkout-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 2.9 8.1 7 10 4.1-1.9 7-5.5 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg><span>Adicione à sacola para revisar a seleção. Esta prévia não conclui pedidos ou pagamentos.</span></p>
 
         <div class="trust-strip" aria-label="Informações importantes">
           <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><strong>Preço informado</strong><small>Produto por R$ 0,00</small></span></div>
@@ -283,11 +282,11 @@
     </section>
 
     <section class="confidence" aria-labelledby="confidence-title">
-      <div class="confidence-head"><div><p>Compra com clareza</p><h2 id="confidence-title">Você sabe o que está confirmado — e o que ainda precisa conferir.</h2></div><small>Transparência nas condições para ajudar você a decidir com segurança.</small></div>
+      <div class="confidence-head"><div><p>Antes de escolher</p><h2 id="confidence-title">Curtiu a peça? Veja os detalhes e escolha o tamanho.</h2></div><small>Fotos da frente, das costas e de detalhes para você conhecer melhor a camiseta.</small></div>
       <div class="confidence-grid">
-        <article class="confidence-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v14H4zM8 9h8M8 13h5"/></svg><strong>Preço do item</strong><p>O preço da camiseta aparece com clareza: R$ 0,00.</p></article>
-        <article class="confidence-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v11H3zM14 11h4l3 3v4h-7z"/><circle cx="7.5" cy="19" r="1.5"/><circle cx="17.5" cy="19" r="1.5"/></svg><strong>Frete e prazo</strong><p>Não são estimados aqui. Consulte as condições antes de confirmar.</p></article>
-        <article class="confidence-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 2.9 8.1 7 10 4.1-1.9 7-5.5 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg><strong>Sem checkout ativo</strong><p>Esta prévia não envia pedidos, não processa pagamentos e não confirma estoque.</p></article>
+        <article class="confidence-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v14H4zM8 9h8M8 13h5"/></svg><strong>Preço do produto: R$ 0,00</strong><p>O valor anunciado para a camiseta está visível antes de selecionar.</p></article>
+        <article class="confidence-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v11H3zM14 11h4l3 3v4h-7z"/><circle cx="7.5" cy="19" r="1.5"/><circle cx="17.5" cy="19" r="1.5"/></svg><strong>Frete sem surpresa</strong><p>Se houver custo de entrega, o valor deve ser informado antes da confirmação.</p></article>
+        <article class="confidence-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 2.9 8.1 7 10 4.1-1.9 7-5.5 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg><strong>Seleção em poucos passos</strong><p>Escolha o tamanho e confira a sacola demonstrativa da página.</p></article>
       </div>
     </section>
   </main>
@@ -345,14 +344,14 @@
     });
 
     function updateLabels() {
-      $('add-label').textContent = size ? `Adicionar tamanho ${size} à sacola` : 'Selecione um tamanho';
-      $('sticky-button').textContent = size ? `Adicionar ${size} à sacola` : 'Selecionar tamanho';
+      $('add-label').textContent = size ? `Quero a minha — tamanho ${size}` : 'Escolher meu tamanho';
+      $('sticky-button').textContent = size ? `Quero a minha · ${size}` : 'Escolher tamanho';
       $('size-label').textContent = size ? `· ${size}` : '';
     }
     document.querySelectorAll('.size').forEach((button) => button.addEventListener('click', () => {
       size = button.dataset.size;
       document.querySelectorAll('.size').forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
-      $('hint').textContent = `Tamanho ${size} selecionado.`;
+      $('hint').textContent = `Tamanho ${size} selecionado — pronto para adicionar à sacola.`;
       $('hint').classList.remove('error');
       updateLabels();
     }));
