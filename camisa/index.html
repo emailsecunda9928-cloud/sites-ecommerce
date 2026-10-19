@@ -21,7 +21,17 @@ a{color:inherit;text-decoration:none}
 button{font:inherit}
 h1,h2,p{margin-top:0}
 .wrap{width:min(1080px,calc(100% - 32px));margin-inline:auto}
-.topbar{background:var(--accent-dark);color:#fff;text-align:center;font-size:13px;padding:8px 12px}
+.gallery-column{display:grid;gap:12px;min-width:0}
+.image-banner{display:flex;align-items:center;gap:10px;min-height:44px;padding:8px 12px;border:1px solid var(--accent-line);border-radius:8px;background:linear-gradient(105deg,var(--accent-soft),#fff);color:var(--ink);font-size:13px;font-weight:650}
+.image-banner-label{flex:none;padding:4px 8px;border-radius:5px;background:var(--accent);color:#fff;font-size:10px;font-weight:800;letter-spacing:.04em}
+.topbar{height:36px;display:flex;align-items:center;overflow:hidden;background:var(--accent-dark);color:#fff;font-size:12px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.ticker{width:100%;overflow:hidden}
+.ticker-track{display:flex;width:max-content;animation:ticker-scroll 34s linear infinite;will-change:transform}
+.ticker-group{display:flex;align-items:center;flex:none;gap:26px;padding:0 22px;white-space:nowrap}
+.ticker-dot{color:#b9d0ff;font-size:16px}
+@keyframes ticker-scroll{to{transform:translateX(-50%)}}
+.topbar:hover .ticker-track{animation-play-state:paused}
 .header{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:10}
 .header .wrap{height:60px;display:flex;align-items:center;justify-content:space-between}
 .logo{color:var(--accent);font-size:24px;font-weight:850;letter-spacing:-.06em}
@@ -119,11 +129,17 @@ dialog::backdrop{background:rgba(20,18,22,.55)}
 .sticky.on{transform:none}
 body{padding-bottom:70px}
 }
-@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}.ticker-track{animation:none!important;transform:none!important;will-change:auto!important}}
 </style>
 </head>
 <body>
-<div class="topbar">Camiseta grátis: o produto custa R$ 0,00. Frete, se houver, informado antes de confirmar.</div>
+<div class="topbar" role="region" aria-label="Informações da oferta">
+  <span class="sr-only">Camiseta grátis por tempo limitado. Produto a R$ 0,00. Frete, se houver, informado antes de confirmar.</span>
+  <div class="ticker" aria-hidden="true"><div class="ticker-track">
+    <div class="ticker-group"><span>Camiseta grátis por tempo limitado</span><span class="ticker-dot">•</span><span>Produto a R$ 0,00</span><span class="ticker-dot">•</span><span>Frete, se houver, informado antes de confirmar</span><span class="ticker-dot">•</span></div>
+    <div class="ticker-group"><span>Camiseta grátis por tempo limitado</span><span class="ticker-dot">•</span><span>Produto a R$ 0,00</span><span class="ticker-dot">•</span><span>Frete, se houver, informado antes de confirmar</span><span class="ticker-dot">•</span></div>
+  </div></div>
+</div>
 
 <header class="header">
   <div class="wrap">
@@ -135,7 +151,9 @@ body{padding-bottom:70px}
 <main class="wrap">
   <p class="crumbs">Início / Camisetas / Casual Corinthians</p>
   <section class="product">
-    <div class="gallery" role="group" aria-label="Fotos da camiseta">
+    <div class="gallery-column">
+      <div class="image-banner"><span class="image-banner-label">OFERTA</span><span>Camiseta grátis por tempo limitado</span></div>
+      <div class="gallery" role="group" aria-label="Fotos da camiseta">
       <div class="stage">
         <span class="tag">Grátis</span>
         <img id="main-image" width="1031" height="1200" fetchpriority="high" decoding="async" alt="Vista frontal da camiseta preta com brasão do Corinthians, vestida por modelo">
@@ -146,6 +164,7 @@ body{padding-bottom:70px}
         <button class="thumb" type="button" aria-label="Ver camiseta por trás" aria-pressed="false" data-i="2"><img width="647" height="1200" loading="lazy" alt=""></button>
         <button class="thumb" type="button" aria-label="Ver detalhe do brasão" aria-pressed="false" data-i="3"><img width="1200" height="1200" loading="lazy" alt=""></button>
         <button class="thumb" type="button" aria-label="Ver etiqueta da camiseta" aria-pressed="false" data-i="4"><img width="1200" height="1200" loading="lazy" alt=""></button>
+      </div>
       </div>
     </div>
 
